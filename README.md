@@ -25,3 +25,7 @@ Note that if you are in a conda environment, you may need to `conda deactivate` 
 The [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) site has extensive documentation, as one would expect. The site itself is created using MkDocs.
 
 In general, features of the site are configured in the `mkdocs.yml` file, where a number of plugins or extensions can also be added. The addition of the plugins will change the allowable syntax in the docs files to provide support for features like icons, tabbed views, and more. The contents of the docs can be found in the `docs/` directory, where each markdown file represents a page in the docs.
+
+## Previewing site contents
+
+After installing the packages above, use `mkdocs serve` to serve the site on port 8000 to prieview changes in your web browser as you edit.
