@@ -1,4 +1,5 @@
 # GEMINI-App-Docs-Dev
+
 Development repo for public-facing GEMINI App Docs
 
 ## Tools
@@ -9,7 +10,15 @@ Specifically, the [Material for MkDocs](https://squidfunk.github.io/mkdocs-mater
 
 ## Installation
 
-Packages needed to build and serve MkDocs can either be loaded from the python venv with `source mkdocs-env/bin/activate` or you can install the mkdocs-material pip package with `pip install mkdocs-material`.
+The recommended way to install packages needed to build and serve mkdocs is to create a virtual environment and install the mkdocs-material pip package (or you may use the `requirements.txt` file provided).
+
+```
+python -m venv mkdocs-env
+source mkdocs-env/bin/activate
+pip install mkdocs-material
+```
+
+Note that if you are in a conda environment, you may need to `conda deactivate` before activating the virtual env.
 
 ## How to use
 
