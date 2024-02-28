@@ -20,6 +20,8 @@ theme:
 
 plugins:
   - search
+  - glightbox
+
 
 markdown_extensions:
   - admonition
@@ -30,3 +32,5 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - def_list
+  - attr_list
+  - md_in_html
