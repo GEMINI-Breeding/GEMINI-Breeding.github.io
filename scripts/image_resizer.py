@@ -53,10 +53,14 @@ if __name__ == '__main__':
                 
 
     for image_file_name in tqdm(image_file_names):
-        # pass gif images
-
         if image_file_name.split('.')[-1] == 'gif':
+            # Compress gif image under 10mb  using gifsicle
+            absolute_path_src = os.path.abspath(os.path.join(args.root, image_file_name))
+            absolute_path_dsc = os.path.abspath(os.path.join(trash_folder, image_file_name.split('/')[-1]))
+            shutil.copy(absolute_path_src, absolute_path_dsc)
+            os.system(f'gifsicle -O3 --use-col=web --lossy=80 --scale 0.4 "{absolute_path_src}" -o "{absolute_path_src}"')
             continue
+
         image = cv2.imread(str(os.path.join(args.root,image_file_name)))
         
         # Get file extension usng library
