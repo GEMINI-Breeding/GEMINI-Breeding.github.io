@@ -1,2 +1,7 @@
 # Python Environment
 mkdocs-env/
+scripts/*.mp4
+scripts/*.mov
+scripts/*.gif
+scripts/trash/
+trash/

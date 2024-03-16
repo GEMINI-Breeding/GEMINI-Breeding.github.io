@@ -1,5 +1,0 @@
----
-title: Drone
----
-
-**Coming Soon**
