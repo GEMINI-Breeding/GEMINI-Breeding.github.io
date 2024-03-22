@@ -7,14 +7,15 @@ To navigate to the file upload page, click on the `Upload` Icon.
 
 **Image Data**: This is the raw image files taken from the sensing platforms. These group of images should be coming from an individual sensor. Some image types include: `jpg`, `jpeg`, `png` or `tif`
 
-**Field Design**: This is a `csv` file containing field these properties: 
-* *Year (optional)*: The year of the experiment. If not provided, the current year will be used.
-* *Plot*: The unique plot number associated with each plant.
-* *Accession*: the unique accession number associated with each plant.
-* *Location*: The location of the experiment.
-* *Population*: The population from which the plants were selected.
-* *Row*: The row number of the plot.
-* *Column*: The column number of the plot.
+**Field Design**: This is a `csv` file containing field these properties
+
+- *Year (optional)*: The year of the experiment. If not provided, the current year will be used.
+- *Plot*: The unique plot number associated with each plant.
+- *Accession*: the unique accession number associated with each plant.
+- *Location*: The location of the experiment.
+- *Population*: The population from which the plants were selected.
+- *Row*: The row number of the plot.
+- *Column*: The column number of the plot.
 
 **GCP Locations**: This is a `csv` file containing locations of GCPs. The first column should contain the label, the second column contains latitude and the third column contains longitude.
 
