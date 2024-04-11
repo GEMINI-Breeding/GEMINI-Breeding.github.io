@@ -11,45 +11,50 @@ title: Build Guide
 - **Enclosure**: [Link](https://www.amazon.com/Laisomeke-Waterproof-Junction-Enclosure-Electrical/dp/B0BR5DY1VG?th=1){:target="_blank"}
 - SD Card for storing collected data
 - Basic soldering and crimping equipment
+- Double-sided tape to attach components to enclosure
 
 ## Build Instructions
 
 **Setup:**
 
-- Bore a hole in the side of the box to size for a cable gland. Insert a cable gland into the hole.  
-- Use double-sided tape to secure components to the enclosure as follows.  
-- Secure the Arduino and the bluetooth module in the bottom inside of the enclosure. Secure the thermocouple module to the inside side of the box opposite the hinge with its pins facing away from the cable gland.  
+- Bore a hole in the side of the enclosure to size for a cable gland. Drill the hole as low as possible on the side to allow the Arduino USB cable to be inserted with a minimal bend. Insert a cable gland into the hole. 
+- Secure the Arduino and the bluetooth module in the bottom of the enclosure. Secure the thermocouple module (with wire connected) to the inside side of the box opposite the hinge with its pins facing away from the cable gland.  
 - Attach the temperature / humidity sensor to the top of the enclosure if using a radiation shield. If not, attach the sensor on the side of the enclosure.  
+- See [bottom of page](#completed-weather-station) for the internals of a completed weather station and clarification on placement of components.
 
-**Arduino Wiring Guide:**  
+**Arduino Wiring Guide:**   
 ![Image title](imgs/weatherStationDiagram.png)
 
-- On three distinct, well-spaced rows of the prototyping area of the datalogger, solder 5-pin, 6-pin, and 3-pin male [JST-XH headers](https://www.amazon.com/GeeBat-460pcs-Connector-Housing-Adapter/dp/B01MCZE2HM){:target="_blank"}. Leave the bottom two rows of the prototyping area untouched. The image below uses rows R1, R5, and R9, leaving R11 free for later.  
-![Image title](imgs/dataloggerTop.jpg)
 ## Soldering Guide
-- Begin soldering. Solder a wire from the 5V source to R11 for easier access to the source later on. Solder a wire from the board GND to another point on R11.  
+- Use the example soldered datalogger board (shown [below](#example-soldered-board)) for reference throughout the soldering process.
+- On three distinct, well-spaced rows of the prototyping area of the datalogger, solder 5-pin, 6-pin, and 3-pin male [JST-XH headers](https://www.amazon.com/GeeBat-460pcs-Connector-Housing-Adapter/dp/B01MCZE2HM){:target="_blank"}. Leave the bottom two rows of the prototyping area untouched. The image below uses rows R1, R5, and R9, leaving R11 free for later. See underside soldering [here](imgs/wsSolderGuide1.jpg){:target="_blank"}.
+![Image title](imgs/dataloggerTop.jpg)
+- Solder a wire from the 5V source to R11 for easier access to the source later on. Solder a wire from the board GND to another point on R11. For convenience, the 5V and GND can also be soldered to the 3-pin header at this time (as [shown](imgs/wsSolderGuide2.jpeg){:target="_blank"}).
+- **NOTE: All pins referred to for soldering on the board reference the digital pins on the right side, not the analog inputs on the left.**  
 
-- **NOTE: All pins referred to for soldering on the board reference the digital pins on the right side, not the analog inputs on the bottom left.**  
-
-- ***5-pin header***: Connect the first (leftmost) pin (as shown below) to P13. Connect the next pin to P4. Connect the third pin to P12. Connect the fourth pin to the 5V source. Connect the final pin to GND.
-- ***6-pin header***: The outer pin on either side will be unused. Connect the second pin (leftmost pin in use) to P6. Connect the third pin to P5. Connect the fourth pin to GND. Connect the fifth pin (rightmost pin in use) to the 3.3V source. 
-- ***3-pin header***: Connect the first (leftmost) pin to the 5V source. Connect the second pin to P2. Connect the third (rightmost) pin to GND. 
+- ***5-pin header***: Connect the first (leftmost) pin to P13. Connect the next pin to P4. Connect the third pin to P12. Connect the fourth pin to the 5V source. Connect the final pin to GND. See soldered board after this step [here](imgs/wsSolderGuide3.jpeg){:target="_blank"}.
+- ***6-pin header***: The outer pin on either side will be unused. Connect the second pin (leftmost pin in use) to P6. Connect the third pin to P5. Connect the fourth pin to GND. Connect the fifth pin (rightmost pin in use) to the 3.3V source. See soldered board after this step [here](imgs/wsSolderGuide4.jpeg){:target="_blank"}.
+- ***3-pin header***: Connect the first (leftmost) pin to the 5V source and the last (rightmost) pin to GND if these were not already connected. Connect the second pin to P2.  
+### Example Soldered Board
 - The final soldered board should look similar to this:
 ![Image title](imgs/dataloggerBottom.jpg)
 
 ## Assembly
-- With three distinctly colored wires (sized appropriately to reach the temperature / humidity sensor from the board), use female JST-XH crimp terminals and a crimp tool to crimp the ends of each wire. Connect the ends of each wire to 3-pin female JST-XH Headers. Repeat this process for five wires.  
-- Using **four** distinctly colored wires, connect the ends of each wire to the **middle four** pins of **6-pin** female JST-XH headers.  
-- Connect the female wire headers to the properly sized male headers on the board. The 6-pin connector should be connected to the bluetooth module, with the 5-pin and 3-pin connectors going to the thermocouple module and through the cable gland to the temperature / humidity sensor respectively.  
+- With three distinctly colored wires (sized appropriately to reach the temperature / humidity sensor from the board), use female JST-XH crimp terminals and a crimp tool to crimp the ends of each wire. Connect the ends of each wire to 3-pin female JST-XH Headers. Repeat this process for five wires to length for the thermocouple module.  
+- When connecting the crimped wires to the female headers, pay close attention to how the header will connect with the previously soldered male headers. 
+- Using **four** distinctly colored wires (sized to reach the bluetooth module), connect the ends of each wire to the **middle four** pins of **6-pin** female JST-XH headers.  
+- Connect the female wire headers to the properly sized male headers on the board. The 6-pin connector should be connected to the bluetooth module, with the 5-pin and 3-pin connectors going to the thermocouple module and through the cable gland to the temperature / humidity sensor respectively. See wires correctly connected to the female headers and board [here](imgs/dataloggerWires.jpeg){:target="_blank"}.
 - To ensure that the wires are connected properly, one can match the pin connected to the voltage source with the VCC or GND pin on the respective component. Pay attention to which wire is connected to each pin. 
-![Image title](imgs/dataloggerWires.jpeg)
 - Connect the Arduino USB cable through the enclosure. If the cable gland included in the linked enclosure is used, some material will have to be shaved from the corners of the USB-B end of the cable.  
-- Attach the thermocouple wire to the module's input. Depending on the routed again through the cable gland. 
+- Attach the thermocouple wire to the module's input. Depending on the style of thermocouple used, it may be necessary to solder the thermocouple to the module. 
 - Attach the datalogger (with a CR1220 battery and SD Card in place) to the Arduino.  
-
-**Internals of Complete Weather Station:**
+- If using a radiation shield, attach the radiation shield to the top of the box, covering the temperature / humidity sensor.
+## Completed Weather Station
+**Internals:**
 ![Image title](imgs/internals.jpg)
+**Station with Radiation Shield:**
+![Image title](imgs/completed_station.jpg)
 
-- If using a radiation shield, attach the radiation shield to the top of the box, covering the temperature / humidity sensor.  
+  
 
 
