@@ -26,7 +26,7 @@ To navigate to the file upload page, click on the `Upload` Icon.
 | ![Field Design](_attachments/file-upload/field_design.png) | ![GCP Locations](_attachments/file-upload/gcp_locations.png) |
 
 ## Data Fields
-
+s
 **Year**: This is the year `YYYY` the data was collected. It is a required field. For example `2022` is a valid year.
 **Experiment**: This is open for the user to decide. This will differentiate experiments for a single year. For example `Experiment 1` is a valid experiment.
 **Location**: This is the location where the data was collected. For example `Davis` is a valid location.
@@ -45,6 +45,4 @@ To navigate to the file upload page, click on the `Upload` Icon.
 
 
 ## Video Deomnstration
-<a href="https://drive.google.com/file/d/1rLYtK0SlU6doJ_DHDvZcZheSWzR7-S1Y/view?usp=sharing">
-  <img src="_attachments/file-upload/video.png" alt="File Upload Video" width="500"/>
-</a>
+[![File Upload Video](_attachments/file-upload/video.png)](https://drive.google.com/file/d/1rLYtK0SlU6doJ_DHDvZcZheSWzR7-S1Y/view?usp=sharing)
