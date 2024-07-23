@@ -42,3 +42,9 @@ To navigate to the file upload page, click on the `Upload` Icon.
 3. Drag and drop your files in the upload region.
 <br>
     ![Upload File](_attachments/file-upload/file_upload.png)
+
+
+## Video Deomnstration
+<a href="_attachments/file-upload/file_upload.mp4">
+  <img src="_attachments/file-upload/video.png" alt="Video Name" width="500"/>
+</a>
