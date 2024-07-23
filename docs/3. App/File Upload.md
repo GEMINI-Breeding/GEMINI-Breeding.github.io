@@ -45,6 +45,6 @@ To navigate to the file upload page, click on the `Upload` Icon.
 
 
 ## Video Deomnstration
-<a href="_attachments/file-upload/file_upload.mp4">
-  <img src="_attachments/file-upload/video.png" alt="Video Name" width="500"/>
+<a href="https://drive.google.com/file/d/1rLYtK0SlU6doJ_DHDvZcZheSWzR7-S1Y/view?usp=sharing">
+  <img src="_attachments/file-upload/video.png" alt="File Upload Video" width="500"/>
 </a>
