@@ -44,5 +44,5 @@ s
     ![Upload File](_attachments/file-upload/file_upload.png)
 
 
-## Video Deomnstration
-[File Upload Video](https://drive.google.com/file/d/1rLYtK0SlU6doJ_DHDvZcZheSWzR7-S1Y/view?usp=sharing)
+## Video Demonstration
+[File Upload Video](https://drive.google.com/file/d/1rLYtK0SlU6doJ_DHDvZcZheSWzR7-S1Y/view?usp=sharing){:target="_blank"}

@@ -2,13 +2,13 @@
 title: Drone
 ---
 ## Installing Mission Planner
-You can follow the instructions from [Installing Mission Planner — Mission Planner documentation](https://ardupilot.org/planner/docs/mission-planner-installation.html)
+You can follow the instructions from [Installing Mission Planner — Mission Planner documentation](https://ardupilot.org/planner/docs/mission-planner-installation.html){:target="_blank"}
 
 For Android Tablets, you can download and install this APK file: 
 
-- [Release Android Development Build · ArduPilot/MissionPlanner · GitHub](https://github.com/ArduPilot/MissionPlanner/releases/tag/latest)
+- [Release Android Development Build · ArduPilot/MissionPlanner · GitHub](https://github.com/ArduPilot/MissionPlanner/releases/tag/latest){:target="_blank"}
 
-- [com.michaeloborne.MissionPlanner-signed.apk](https://github.com/ArduPilot/MissionPlanner/releases/download/latest/com.michaeloborne.MissionPlanner-signed.apk)
+- [com.michaeloborne.MissionPlanner-signed.apk](https://github.com/ArduPilot/MissionPlanner/releases/download/latest/com.michaeloborne.MissionPlanner-signed.apk){:target="_blank"}
 
 ## Using a Tablet or PC?
 
@@ -127,4 +127,4 @@ You can also set the default altitude for your waypoints by setting "Default Alt
 6. If you set auto landing, it will return to the launch position and automatically land. If you did not set the auto return, it will stay at the last waypoint in the Mission, and you will have to land the drone manually.
 
 ## Useful videos
-[Introduction to Mission Planner - YouTube](https://www.youtube.com/watch?v=6OdcdR8hjd0&t=350s)
+[Introduction to Mission Planner - YouTube](https://www.youtube.com/watch?v=6OdcdR8hjd0&t=350s){:target="_blank"}
