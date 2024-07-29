@@ -1,5 +1,5 @@
 ---
-title: File Upload
+title: Upload
 ---
 To navigate to the file upload page, click on the `Upload` Icon.
 
