@@ -3,9 +3,8 @@ title: Start Guide
 ---
 
 ## Install
-- **Note: Requires a MacOS or Linux system.**
 - Access the [GEMINI-App repository](https://github.com/GEMINI-Breeding/GEMINI-App){:target="_blank"}. 
-- Clone into an IDE such as VSCode either using HTTPS or SSH. If using HTTPS, ensure your git credentials are populated via the terminal. If using SSH, make sure an SSH key for your machine is available in your Github account.
+- Clone into an IDE such as VSCode using HTTPS or SSH. If using HTTPS, ensure your git credentials are populated via the terminal. If using SSH, make sure an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account){:target="_blank"} for your machine is available in your Github account.
 - Input the commands for setup listed on the GEMINI-App README.md:
 ```
 # Download git submodules
@@ -53,4 +52,5 @@ npm run server
 ```
 
 ## Troubleshooting
+- If the path in `package.json` is not properly populated, a `Failed to upload file` error will appear. Make sure the path points to an existing and accessible directory.
 - If the GEMINI App is run before starting Docker Desktop, orthophoto generation will fail. To fix this, Docker Desktop must be started and the `GEMINI-App-Data/temp` directory must be deleted. The next attempt at generation with Docker Desktop running will properly create the temp files.
