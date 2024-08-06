@@ -40,7 +40,6 @@ npm install --legacy-peer-deps # Fix the upstream dependency conflict
 ## Running the App
 *In gemini-app:*
 ```
-
 # Run development server
 npm run gemini # It wil run front and server concurrently. It will mix the logs
 
@@ -54,3 +53,4 @@ npm run server
 ## Troubleshooting
 - If the path in `package.json` is not properly populated, a `Failed to upload file` error will appear. Make sure the path points to an existing and accessible directory.
 - If the GEMINI App is run before starting Docker Desktop, orthophoto generation will fail. To fix this, Docker Desktop must be started and the `GEMINI-App-Data/temp` directory must be deleted. The next attempt at generation with Docker Desktop running will properly create the temp files.
+- To ensure that the app is properly running in Docker, after the command `npm start gemini`, ensure that the terminal is NOT cleared (meaning you should be able to scroll up and see previous commands). If the terminal is cleared (you are unable to scroll up to view previous commands), the app is not running in Docker properly. Restart Docker and try again. 
