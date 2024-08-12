@@ -1,9 +1,11 @@
 ---
-title: Aerial Usage Steps
+title: Examples
 ---
 
-Start Docker Desktop and open the GEMINI app. If at any point more specific instructions are needed, navigate to the documentation page for the current tab. 
-## Upload
+## **Aerial Trait Extraction**
+
+Start Docker Desktop and open the GEMINI app. If at any point more specific instructions are needed, navigate to the documentation page for the tab in use. 
+### Upload
 
 - Navigate to the Upload tab. If not already chosen, select **Image Data** in the `Data Type` field.
 - Populate the following fields with information on the data to be uploaded. 
@@ -12,7 +14,7 @@ Start Docker Desktop and open the GEMINI app. If at any point more specific inst
 - After the uploading process is finished, click **Done**.
 - If you wish to upload GCP Locations, change the `Data Type` field to **GCP Locations** and follow the same upload process as before.
 
-## Process
+### Process
 
 - Navigate to the Process tab. In the data selection menu, select the `Year`, `Experiment`, `Location`, and `Population` of the previously uploaded data to be processed.
 - Click **Begin Data Preparation**. In the Orthomosaic Generation window, expand the dropdown of the chosen `Platform` and `Sensor`. Click `Start` on the date to perform orthomosaic generation with.
@@ -33,12 +35,12 @@ Start Docker Desktop and open the GEMINI app. If at any point more specific inst
 - After creating the plot boundary, navigate to the Aerial Processing window.
 - Expand the dropdown of the chosen `Platform` and `Sensor` once more. Click **Start** to process the traits of the desired date. 
 
-## Stats
+### Stats
 
 - Navigate to the Stats tab. Expand the dropdown of the chosen `Platform` and `Sensor` to see data for the available dates.
 - Click **Load** to view the processed data of choice. Click **Download CSV** if desired.
 
-## Map
+### Map
 
 - Navigate to the Map tab. Open the data selection menu to select the data to analyze.
 - Use the dropdown menu to select the `Trait Metric` to view.
