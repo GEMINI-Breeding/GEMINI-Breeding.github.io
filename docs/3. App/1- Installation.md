@@ -35,7 +35,11 @@ npm install --legacy-peer-deps # Fix the upstream dependency conflict
 ![package.json Path](_attachments/install/packageJsonPath.png)
 
 - This path must point to a `GEMINI-App-Data` directory for the app to function.
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank"} for your system. Ensure Docker Desktop is running before running the GEMINI App each time. 
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank"} for your system. Ensure Docker Desktop is running before running the GEMINI App each time.
+- Create and add your [Map Box Access Token](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"} to the `.env` file in the `gemini-app` directory like below. This is necessary for map functionality. 
+```
+REACT_APP_MAPBOX_TOKEN=example.yourMapBoxAccessToken.1234
+```
 
 ## Running the App
 *In gemini-app:*
