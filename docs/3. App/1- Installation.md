@@ -51,7 +51,12 @@ docker: Error response from daemon: could not select device driver "" with capab
 - This error will lead to the CPU being used for orthophoto generation, which may result in longer generation time.
 
 ## Running the App
-*In gemini-app:*
+- If the CPU is to be used for orthophoto generation, ensure Docker Desktop is running before starting the app.
+- If the GPU is to be used for orthophoto generation, ensure Docker Engine is running before starting the app by using `systemctl status docker` and `systemctl start docker` as needed.
+
+
+*In `GEMINI-App/gemini-app`:*
+
 ```
 # Run development server (front and server concurrently)
 npm run gemini 
