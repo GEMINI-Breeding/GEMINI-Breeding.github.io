@@ -1,8 +1,11 @@
 ---
-title: Build Guide
+title: Weather Station
 ---
+
+## **Build Guide**
+
 ![Image title](imgs/weatherStation.png)
-## Component List
+### Component List
 - **Arduino Uno R3 (or equivalent)**: [Documentation](https://docs.arduino.cc/hardware/uno-rev3/){:target="_blank"}
 - **Datalogger Shield**: [Documentation](https://learn.adafruit.com/adafruit-data-logger-shield/overview){:target="_blank"}
 - **DHT22 Temperature / Humidity Sensor**: [Documentation](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf){:target="_blank"}
@@ -13,7 +16,7 @@ title: Build Guide
 - Basic soldering and crimping equipment
 - Double-sided tape to attach components to enclosure
 
-## Build Instructions
+### Build Instructions
 
 **Setup:**
 
@@ -25,7 +28,7 @@ title: Build Guide
 **Arduino Wiring Guide:**   
 ![Image title](imgs/weatherStationDiagram.png)
 
-## Soldering Guide
+### Soldering Guide
 - Use the example soldered datalogger board (shown [below](#example-soldered-board)) for reference throughout the soldering process.
 - On three distinct, well-spaced rows of the prototyping area of the datalogger, solder 5-pin, 6-pin, and 3-pin male [JST-XH headers](https://www.amazon.com/GeeBat-460pcs-Connector-Housing-Adapter/dp/B01MCZE2HM){:target="_blank"}. Leave the bottom two rows of the prototyping area untouched. The image below uses rows R1, R5, and R9, leaving R11 free for later. See underside soldering [here](imgs/wsSolderGuide1.jpg){:target="_blank"}.
 ![Image title](imgs/dataloggerTop.jpg)
@@ -39,7 +42,7 @@ title: Build Guide
 - The final soldered board should look similar to this:
 ![Image title](imgs/dataloggerBottom.jpg)
 
-## Assembly
+### Assembly
 - With three distinctly colored wires (sized appropriately to reach the temperature / humidity sensor from the board), use female JST-XH crimp terminals and a crimp tool to crimp the ends of each wire. Connect the ends of each wire to 3-pin female JST-XH Headers. Repeat this process for five wires to length for the thermocouple module.  
 - When connecting the crimped wires to the female headers, pay close attention to how the header will connect with the previously soldered male headers. 
 - Using **four** distinctly colored wires (sized to reach the bluetooth module), connect the ends of each wire to the **middle four** pins of **6-pin** female JST-XH headers.  
@@ -49,12 +52,30 @@ title: Build Guide
 - Attach the thermocouple wire to the module's input. Depending on the style of thermocouple used, it may be necessary to solder the thermocouple to the module. 
 - Attach the datalogger (with a CR1220 battery and SD Card in place) to the Arduino.  
 - If using a radiation shield, attach the radiation shield to the top of the box, covering the temperature / humidity sensor.
-## Completed Weather Station
+### Completed Weather Station
 **Internals:**
 ![Image title](imgs/internals.jpg)
 **Station with Radiation Shield:**
 ![Image title](imgs/completed_station.jpg)
 
+## **Usage**
   
+### Uploading RH_Temp_Logger
+- The file [RH_Temp_Logger.ino](https://github.com/GEMINI-Breeding/weather-station/blob/main/RH_Temp_Logger/RH_Temp_Logger.ino){:target="_blank"} is used to operate the weather station and must be uploaded to the Arduino before use.
+- Install the [Arduino IDE](https://www.arduino.cc/en/software){:target="_blank"} software and open RH_Temp_Logger.ino in the IDE.  
+- In the built-in library manager, search for and install: **SD**, **RTClib**, **DHT sensor library**, **MAX6675 library**, and **MAX6675 with hardware SPI**.  
+- Connect the Arduino's USB cable to the computer and select the correct board / port in the IDE.
+- Click "Upload" (Ctrl+U) to upload the sketch to the Arduino. The station is now ready for use with the GEMINI sensing app.
+- To verify everything is working properly, the serial monitor in the Arduino IDE can be used.
+
+**Expected Output**
+![Image title](imgs/serialMonitor.png)
+### General Usage
+- Connect the USB cable from the Arduino to a 5V power supply.  
+- To update the weather station's RTC clock (GMT-0 time zone), turn on the GEMINI app prior to powering the weather station. 
+- Depending on your use case, you may either place the weather station in the field to take measurements or attach the unit to the rover.   
+![Image title](imgs/fieldUsage.png)
+- Data from the weather station is stored in the SD Card on the datalogger. The data is logged in a CSV format in a file titled YYYYMMDD.CSV based on the current date. 
+![Image title](imgs/sd.png)
 
 
