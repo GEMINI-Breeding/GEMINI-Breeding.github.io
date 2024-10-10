@@ -14,6 +14,7 @@ Data includes:
 ## **Aerial-Based Trait Extraction**
 
 Start Docker Desktop and open the GEMINI app. If at any point more specific instructions are needed, navigate to the documentation page for the tab in use. 
+
 ### Upload
 
 - Navigate to the Upload tab. If not already chosen, select **Image Data** in the `Data Type` field.
@@ -56,22 +57,28 @@ Start Docker Desktop and open the GEMINI app. If at any point more specific inst
 - The traits can be seen overlaid on the orthomosaic based on the plot boundaries created earlier.
 
 ## **Ground-Based Trait Extraction**
+
 Please complete Aerial-Based Trait Extraction before proceeding with Ground-Based Trait Extraction. You will need to utilize the plot the plot boundaries created in the Aerial-Based Trait Extraction process.
 
 ### Upload
+
 #### Images
+
 - Navigate to the Upload tab. If not already chosen, select **Image Data** in the `Data Type` field.
 - Populate the following fields with information on the data to be uploaded. 
 - After all fields have been populated, drag and drop files into the upload box or click in the box to select files via the file explorer.
 - Once you have selected all files from the dataset, click **Upload** to upload the images to the app.
 - After the uploading process is finished, click **Done**.
+  
 #### Metadata
+
 - Change the `Data Type` field to **Platform Logs**.
 - Populate the following fields with information on the data to be uploaded and then upload the files.
     - The metadata of these images include camera information, GPS locations, and timestamps.
     - Refer to the the `msgs_synced.csv` file to format your metadata file for personal use.
 
 ### Process
+
 #### Locate Plants
 In this section, you will use an early date to locate plants in the field.
 
@@ -90,6 +97,7 @@ In this section, you will use an early date to locate plants in the field.
   - Then, you can press the `Locate` button.
 
 #### Trait Extraction
+
 In this section, you will extract traits from the located plants. You can select any date for this process.
 
 - Navigate to the **Label Traits** tab. In the `Select Trait` dropdown, select the trait you would like to extract.
