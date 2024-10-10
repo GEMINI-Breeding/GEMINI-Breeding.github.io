@@ -74,6 +74,7 @@ Please complete Aerial-Based Trait Extraction before proceeding with Ground-Base
 
 - Change the `Data Type` field to **Platform Logs**.
 - Populate the following fields with information on the data to be uploaded and then upload the files.
+
     - The metadata of these images include camera information, GPS locations, and timestamps.
     - Refer to the the `msgs_synced.csv` file to format your metadata file for personal use.
 
@@ -86,13 +87,18 @@ In this section, you will use an early date to locate plants in the field.
 - Navigate to the **Locate Plants** tab. In this tab, you will annotate individual plants in an image, train a machine learning model to detect individual plants, and then find every plant in the field.
 - Select the Platform and Sensor you would like to do this process for.
 - Click on the `Labels` button to label your data. Click on `Annotate` and wait for the software (CVAT) to open. This could take a while. **Note: Please allow pop-ups for this process.**
+  
   - A new tab should open with the labelling software. Create an account if you do not have one already.
   - Perform your annotations and then download the annotations. **Use YOLO format during your export!**
   - Upload the `.txt` files into the app.
+
 - After annotating your images, you can now train your model. Click on the button under `Model` for the specific date. Next, press `Train Model`.
+
   - You can expand the progress bar to track the model performance.
   - After training, you should be able to see the generated model.
+
 - Next, click on the button under the `Locations` column. 
+
   - Select the model you would like to use for this process. It is preferred to select the model with the highest performance score.
   - Then, you can press the `Locate` button.
 
@@ -103,10 +109,13 @@ In this section, you will extract traits from the located plants. You can select
 - Navigate to the **Label Traits** tab. In the `Select Trait` dropdown, select the trait you would like to extract.
 - Select the Platform and Sensor you would like to do this process for. Similarily to the **Locate Plants**, annotate the necessary images and upload them.
 - Next, go to the **Train Traits** tab. Select the `Trait` you would like to train the model for. 
+
   - Click on the `New Model` button.
   - Select the Platform, Sensor and Date you would like to train the model for.
   - Then, press the `Train Model` button.
   - Again, you can view the resulting model after the process is done.
+
 - Finally, go to the **Extract Traits** tab. Select the `Trait` you would like to extract. 
+
   - Select the Platform, Sensor, Date, Locations ID, and Model ID you would like to use for this process. It is preferred to select the model with the highest performance score.
   - Then, you can press the `Extract` button.
