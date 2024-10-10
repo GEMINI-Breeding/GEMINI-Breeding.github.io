@@ -5,7 +5,9 @@ title: Examples
 ## **Example Data**
 
 Example data can be found in this link: [Example Data](https://ucdavis.box.com/s/ts802xlcddyufixfjmeayxwiiz2mxrb9)
+
 Data includes:
+
 - Drone Images (for Aerial-Based Trait Extraction)
 - Rover Images (for Ground-Based Trait Extraction)
 
@@ -72,6 +74,7 @@ Please complete Aerial-Based Trait Extraction before proceeding with Ground-Base
 ### Process
 #### Locate Plants
 In this section, you will use an early date to locate plants in the field.
+
 - Select the **Ground Processing** tab. In the data selection menu, select the `Year`, `Experiment`, `Location`, and `Population` of the previously uploaded data to be processed.
 - Navigate to the **Locate Plants** tab. In this tab, you will annotate individual plants in an image, train a machine learning model to detect individual plants, and then find every plant in the field.
 - Select the Platform and Sensor you would like to do this process for.
@@ -88,6 +91,7 @@ In this section, you will use an early date to locate plants in the field.
 
 #### Trait Extraction
 In this section, you will extract traits from the located plants. You can select any date for this process.
+
 - Navigate to the **Label Traits** tab. In the `Select Trait` dropdown, select the trait you would like to extract.
 - Select the Platform and Sensor you would like to do this process for. Similarily to the **Locate Plants**, annotate the necessary images and upload them.
 - Next, go to the **Train Traits** tab. Select the `Trait` you would like to train the model for. 
