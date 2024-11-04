@@ -5,22 +5,28 @@ To navigate to the image processing page, click on the `Process` Icon. Use the i
 
 ## Orthomosaic Generation
 
+- **NOTE**: To maximize orthomosaic output resolution, upload a gcp_locations.csv file in the `Upload` tab.
 - After uploading image files to the app, orthomosaic generation can be performed. 
 - Expand the dropdown menu of the correct platform and sensor type to select the date to perform generation on. 
-- Click the `Start` button to open the orthomosaic generation window. Use the `Previous` and `Next` buttons or the selection bar to iterate through images to mark ground control points (GCPs) as desired (optional).
-- If a GCP is placed in error, points can be removed by right-clicking.
-- When finished marking GCPs, click `Generate Orthophoto`. In the settings dropdown, select the needed orthophoto quality. Note that higher quality selections will increase the generation time. The `Custom` option can be used with OpenDroneMap args if more specific settings are needed. 
+- Click the `Start` button to open the orthomosaic generation window. Use the `Previous` and `Next` buttons or the selection bar to iterate through images to mark all visible ground control points (GCPs) if a GCP Locations file was uploaded. If a GCP is placed in error, points can be removed by right-clicking.
+- When ready to proceed, click `Generate Orthophoto`. In the settings dropdown, select the orthophoto quality. The `Custom` option can be used with OpenDroneMap args if more specific settings are needed. The default setting attempts to use a GSD (Ground Sampling Distance) of 0.01 cm/pixel. Use the Custom option to input specific GSD values if desired.
 - After selecting the quality level, click `Process Images`. 
-- Follow the progress of the orthomosaic generation by observing the progress bar at the bottom of the page.
+- Follow the progress of orthomosaic generation by observing the progress bar at the bottom of the page. Progress can also be monitored via the logs, which can be opened using the arrow on the right side of the progress bar.
+- Processing may take up to 2 hours with large image datasets. To decrease processing time, use the `Custom` setting with an increased `orthophoto-resolution` flag. For example, the `Custom` setting with `--orthophoto-resolution 1.0` would decrease processing time by a large amount. 
+- If any issues are seen with the output orthophoto using the viewer in the `Manage Orthomosaics` window, check the `GEMINI-App-Data/temp/project/code/odm_report/report.pdf` file for more details on the issues / GCP errors encountered during processing. 
 
 ## Plot Boundary Preparation
 
 **Import Data**
 
 - After ortho generation is finished, the plot boundary is prepared before further processing.
-- First, input a .csv file in the requested format:
+- First, input a field_design.csv file in the requested format:
 
 ![Import Data](_attachments/process/importData.png)
+
+*Example Field Design*
+
+![Field Design](_attachments/file-upload/field_design.png) 
 
 - After uploading, verify that the preview of your data looks correct. If your file has column headers, leave the `Data has headers` box checked. Click `Choose columns`.
 
@@ -40,10 +46,11 @@ To navigate to the image processing page, click on the `Process` Icon. Use the i
 
 **Plot Boundary**
 
+- **NOTE**: ALL PLOTS with plot boundaries created must be included in Field Design file even if the plots aren’t being used in the field. Without their inclusion, mapping of accession information will be incorrect.
 - Select the orthomosaic once more from the dropdown menu. Click the icon at the bottom left to populate parameters for the plot boundaries.
-- Adjust the parameters until you are satisfied with the number of rectangles and spacing of each. 
+- Adjust the parameters until you are satisfied with the plot boundaries for trait extraction. 
 - Use the options in the top right to modify the placement of individual rectangles, or all at once using `Select All`. 
-- Once you are satisfied with the size and placement of the overlaid rectangles, click `Save`.
+- When finished, click `Save`.
 ![Plot Boundary](_attachments/process/plot_bound.png)
 ## Aerial Processing
 
