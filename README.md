@@ -1,6 +1,6 @@
 # GEMINI-App-Docs-Dev
 
-Development repo for public-facing GEMINI App Docs
+Development repo for public-facing [GEMINI App Docs](https://gemini-breeding.github.io/)
 
 ## Tools
 
@@ -15,7 +15,7 @@ The recommended way to install packages needed to build and serve mkdocs is to c
 ```
 python -m venv mkdocs-env
 source mkdocs-env/bin/activate
-pip install mkdocs-material
+pip install mkdocs-material mkdocs-glightbox
 ```
 
 Note that if you are in a conda environment, you may need to `conda deactivate` before activating the virtual env.
