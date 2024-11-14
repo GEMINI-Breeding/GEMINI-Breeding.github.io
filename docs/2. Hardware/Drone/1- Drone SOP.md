@@ -1,5 +1,5 @@
 ---
-title: Drone
+title: Drone Operation Manual
 ---
 ## Installing Mission Planner
 You can follow the instructions from [Installing Mission Planner — Mission Planner documentation](https://ardupilot.org/planner/docs/mission-planner-installation.html){:target="_blank"}

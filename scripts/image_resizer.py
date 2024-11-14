@@ -4,18 +4,17 @@
 import os
 import cv2
 import numpy as np
-from tqdm import tqdm
 from pathlib import Path
 from argparse import ArgumentParser
 import shutil
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--root', type=str, default='docs/2. Drone')
-    parser.add_argument('--input_markdown', type=str, default='Drone SOP.md')
-    parser.add_argument('--width', type=int, default=1440)
+    parser.add_argument('--root', type=str, default='docs/2. Hardware')
+    parser.add_argument('--input_markdown', type=str, default='Ground Control Points (GCPs).md')
+    parser.add_argument('--width', type=int, default=640)
     parser.add_argument('--delete_unused', type=bool, default=True)
-    parser.add_argument('--img_folder', type=str, default='_attachments')
+    parser.add_argument('--img_folder', type=str, default='attachment')
     args = parser.parse_args()
 
     # Read the markdown file and get the image paths
@@ -52,7 +51,7 @@ if __name__ == '__main__':
 
                 
 
-    for image_file_name in tqdm(image_file_names):
+    for image_file_name in image_file_names:
         if image_file_name.split('.')[-1] == 'gif':
             # Compress gif image under 10mb  using gifsicle
             absolute_path_src = os.path.abspath(os.path.join(args.root, image_file_name))
@@ -92,7 +91,7 @@ if __name__ == '__main__':
         with open(os.path.join(args.root, args.input_markdown), 'w') as f:
             f.write(filedata)
 
-        if 0:
+        if 1:
             # Remove the original image
             os.remove(str(os.path.join(args.root,image_file_name)))
         else:

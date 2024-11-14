@@ -5,3 +5,4 @@ scripts/*.mov
 scripts/*.gif
 scripts/trash/
 trash/
+.DS_Store
