@@ -9,8 +9,8 @@ A 3D-printable model has been developed to mount an iPhone under the DJI Phantom
 ![](attachment/05f9ddeb63fcd63dcd3c6ade31fa4834.png)
 
 Download STL files:
-[Phantom4_iPhone13_Mount_Legs](attachment/cfc5fd3f4c89817fc44ae56492b5d004.stl) | 
-[Phantom4_iPhone13_Mount_Tray](attachment/6c18d7abb4f7f3c908699ddf4bd7adf9.stl)
+[Phantom4_iPhone13_Mount_Legs](attachment/Phantom4_iPhone13_Mount_Legs.stl) | 
+[Phantom4_iPhone13_Mount_Tray](attachment/Phantom4_iPhone13_Mount_Tray.stl)
 
 ![](attachment/c000e1dd3fa16f701b7f29976acdb92d.jpg)
 
