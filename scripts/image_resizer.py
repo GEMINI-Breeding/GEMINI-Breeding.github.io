@@ -45,6 +45,10 @@ def process_markdown(markdown_path, width, delete_unused):
             absolute_path_src = os.path.abspath(image_file_name)
             os.system(f'gifsicle -O3 --use-col=web --lossy=80 --scale 0.4 "{absolute_path_src}" -o "{absolute_path_src}"')
             continue
+        
+        # Check the extension of the image
+        if not image_file_name.lower().endswith(('.png', '.jpg', '.jpeg')):
+            continue
 
         new_image_path = resize_image(image_file_name, width)
         if new_image_path != image_file_name:
@@ -59,7 +63,7 @@ def process_markdown(markdown_path, width, delete_unused):
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--input_markdown', type=str, default="docs/2. Hardware/Drone/1 - 2024-11-18 Assembling propellers.md")
+    parser.add_argument('--input_markdown', type=str, default="docs/2. Hardware/Drone/2 - iPhone add-on for DJI Phantom 4.md")
     parser.add_argument('--width', type=int, default=640)
     parser.add_argument('--delete_unused', type=bool, default=False)
     args = parser.parse_args()
