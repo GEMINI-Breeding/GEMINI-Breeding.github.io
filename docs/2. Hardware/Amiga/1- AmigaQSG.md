@@ -9,7 +9,8 @@ title: Quick Start Guide
 comfortable with the speed adjustment and e-stop configuration.
     - We recommend going 100 - 200 ft/min (the first 2 major ticks) to 
 get the best image quality. See the [farm-ng Amiga Dashboard Documentation](https://amiga.farm-ng.com/docs/dashboard/dashboard-user-guide){:target="_blank"} for more information on use of the dashboard.
-![Image title](imgs/amiga_dash.png)
+![Image title](imgs/amiga_dash_light.png#gh-light-mode-only)
+![Image title](imgs/amiga_dash_dark.png#gh-dark-mode-only)
 2. **Set up the GPS RTK base station.**
     - Connect the powerbrick to the CAN/POWER input on the back of 
 the Brain. It will start doing its serve and pinning its position. 
