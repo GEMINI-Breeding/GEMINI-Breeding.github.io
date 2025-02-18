@@ -4,7 +4,7 @@ title: Quick Start Guide
 
 ## **Getting Started with the farm-ng Amiga**
 
-1. **Control the Amiga**
+1. **Control the Amiga.**
     - Go through the dashboard overview. We recommend getting 
 comfortable with the speed adjustment and e-stop configuration.
     - We recommend going 100 - 200 ft/min (the first 2 major ticks) to 
