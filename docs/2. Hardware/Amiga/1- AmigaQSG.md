@@ -30,10 +30,17 @@ the Brain.
 
 4. **Export the recorded file.**
     - You will need a USB drive plugged into the
-back of the brain. 
+back of the brain. Make sure to only plug in the drive after the brain has been turned on.
     - Open the file manager app to view 
  the images and export. Refer to the [farm-ng File Manager App Documentation](https://amiga.farm-ng.com/docs/apps/file_manager_app/){:target="_blank"} for more information on using the file manager for viewing and exporting.
 
+## **Data Saving and Export SOPs**
+- The GEMINI App will be used for extraction of the binary files recorded using the Amiga. Follow the [app installation and setup instructions](../../1.%20App/1-%20Installation.md) before proceeding.
+- Once you are done recording, use the [file manager app](https://amiga.farm-ng.com/docs/apps/file_manager_app/){:target="_blank"} to export the binary files to an external drive.
+    -  Note that the USB drive must be ext4 or exFAT formatted. USB 3.0 drives are recommended for faster file-transfer.
+    -  Once data has been successfully transferred to the drive, the files in the file manager can be deleted.
+- Using the upload tab of the GEMINI App, upload the binary files to begin extracting the binary files to viewable formats. 
+    - Viewing of the extracted data will be added soon to the GEMINI App.
 
 
 
