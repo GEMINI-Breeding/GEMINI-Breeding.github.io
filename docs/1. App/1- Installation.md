@@ -15,6 +15,7 @@ title: Start Guide
 
 - Follow the [general installation and setup instructions](#install).
 - Install [Docker Desktop](https://docs.docker.com/desktop/install/mac-install/){:target="_blank"}.
+- Install [XCode and CLI Tools](https://www.freecodecamp.org/news/how-to-download-and-install-xcode/){:target="_blank"}.
 - **Note**: The GEMINI App attempts to find an NVIDIA GPU to use with OpenDroneMap for orthomosaic generation. Due to the lack of a compatibile GPU on MacOS systems, the following error is expected:
 ```
 docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
