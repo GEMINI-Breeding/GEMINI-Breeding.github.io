@@ -9,6 +9,7 @@ title: Recording SOPs
   - To include the topics, press the *Include URI* button next to the topic name.
 ![Recorder Settings](imgs/recorder_topics.png)
 - The following topics should be selected for recording (create a profile if needed):
+
 | GPS Topics      | Oak0 Topics        | Oak1 Topics        | Oak2 Topics        |
 |-----------------|--------------------|--------------------|--------------------|
 | /gps/ecef       | oak/0/calibration   | oak/1/calibration   | oak/2/calibration   |
