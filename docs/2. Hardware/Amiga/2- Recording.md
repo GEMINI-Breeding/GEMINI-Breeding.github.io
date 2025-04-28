@@ -17,7 +17,7 @@ title: Recording SOPs
 | /gps/relposned  | oak/0/imu           | oak/1/imu           | oak/2/imu           |
 |                 | oak/0/rgb           | oak/1/rgb           | oak/2/rgb           |
 
-### **Image Quality Assurance**
+### Image Quality Assurance
 
 ![Camera Settings](imgs/camera_config.png)
 
@@ -30,7 +30,7 @@ title: Recording SOPs
 
 ![Example Image](imgs/example_images.png)
 
-### **GPS Quality Assurance**
+### GPS Quality Assurance
 
 - Connect GPS Base Station to WiFi and ensure that the attena is connected to the base station.
   - It is recommended that the attena is placed outside with a clear view of the sky.
