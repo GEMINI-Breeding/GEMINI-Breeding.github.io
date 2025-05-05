@@ -2,7 +2,7 @@
 title: Autoplot
 ---
 
-## Autoplot Prerequisites
+## **Autoplot Prerequisites**
 - Open the `Settings` tab from the Brain home screen.
 
 ### IMU Calibration
@@ -28,6 +28,8 @@ title: Autoplot
 - Ensure base station credentials are populated in the `GPS NTRIP` settings pane.
 - When GPS is properly connected, the GPS symbol will not be crossed out and the `GPS RTK CONNECTED` message will be present on the `GPS NTRIP` tab, as seen [here](2- Recording.md/#gps-quality-assurance).
 - Make sure the amiga is connected to WiFi.
+
+## **Using Autoplot**
 
 ### Path Creation
 - After satisfying the prerequisites, open the `Autoplot` app from the amiga Brain. 
