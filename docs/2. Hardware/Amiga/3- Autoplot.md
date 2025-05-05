@@ -68,3 +68,5 @@ title: Autoplot
 - If the `Start Path` button is still shows a question mark, press the button for information on the error. 
 - Errors related to GPS accuracy can be avoided by adjusting the thresholds in the `Robot Localization` settings pane.
 - Guidelines on adjustment of the distance and time thresholds are provided within the settings pane. We recommend increasing the `Path Deviation Threshold` and `Minimum GPS Accuracy` values to avoid errors. The exact values to increase to should be determined by in-field testing and may vary based on distance from RTK base station.
+- To adjust the speed of the amiga in auto control mode, open the `Track Following` settings pane and adjust values as needed. 
+- A maximum linear speed of 0.5 to 1 m/s is recommended to maximize image quality.
