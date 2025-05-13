@@ -6,6 +6,11 @@ title: Start Guide
 
 - [Install WSL2](https://learn.microsoft.com/en-us/windows/wsl/install){:target="_blank"} before proceeding. Install the default Ubuntu distribution to avoid compatibility issues.
 - Access the WSL terminal by searching for and opening the Ubuntu application in the Windows start menu. Open a VSCode window from WSL by entering `code .` in the terminal.
+- Alternatively, WSL can be opened directly from VSCode using the `Connect to...` menu.
+
+![Remote](_attachments/install/connectTo.png)
+![WSL Connect](_attachments/install/wsl.png)
+
 - Follow the [general installation and setup instructions](#install).
 - Install [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/){:target="_blank"}. 
 - Follow the instructions for [Configuring WSL2 with Docker Desktop](https://docs.docker.com/desktop/wsl/){:target="_blank"}. In the VSCode terminal, add your user to the docker group by entering `sudo usermod -aG docker $USER`. Use `newgrp docker` to force the change to take effect. Ensure the correct docker context is in use with `docker context use default`.
@@ -37,6 +42,8 @@ docker: Error response from daemon: could not select device driver "" with capab
 ## Install
 - Access the [GEMINI-App repository](https://github.com/GEMINI-Breeding/GEMINI-App){:target="_blank"}. 
 - Clone into an IDE such as VSCode (recommended) using HTTPS or SSH. If using HTTPS, ensure your git credentials are populated via the terminal. If using SSH, make sure an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account){:target="_blank"} for your machine is available in your Github account.
+
+
 - Input the commands for setup listed on the GEMINI-App README.md:
 ```
 # Download git submodules
