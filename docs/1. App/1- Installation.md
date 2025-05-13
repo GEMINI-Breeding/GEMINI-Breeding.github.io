@@ -96,6 +96,33 @@ npm run front
 npm run server
 ```
 
+## Updating the App
+
+- Option 1: Auto-Update using start up script
+```
+# Navigate to GEMINI App folder
+cd GEMINI-App
+
+# Run the start up script
+./startup.sh
+```
+
+- Option 2: Update using git:
+```
+# Navigate to GEMINI App folder
+cd GEMINI-App
+
+# Pull changes
+git fetch
+git pull
+
+# Update submodules
+git submodule update --init --recursive
+```
+
+- Ensure you have any changes stashed to prevent any conflicts (`git stash` in both GEMINI-App and GEMINI-Flask-Server)
+  - This is automatically done in the start up script in Option 1.
+
 ## Troubleshooting
 - If the path in `package.json` is not properly populated, a `Failed to upload file` error will appear. Make sure the path points to an existing and accessible directory. This error will also be seen if the Flask Server fails to start.
 - To ensure that the app is properly running in Docker, after the command `npm start gemini`, ensure that the terminal is NOT cleared (meaning you should be able to scroll up and see previous commands). If the terminal is cleared (you are unable to scroll up to view previous commands), the app is not running in Docker properly. Restart Docker and try again. 
