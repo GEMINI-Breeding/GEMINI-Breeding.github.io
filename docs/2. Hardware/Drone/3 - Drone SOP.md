@@ -12,7 +12,7 @@ For Android Tablets, you can download and install this APK file:
 
 ## Using a Tablet or PC?
 
-An Android tablet will be provided with the GEMINI Drone. You can connect the drone with a datalink USB, the same as a PC. Using a tablet, you can monitor the drone status when you are out in the field. However, using a PC is recommended if you want to change detailed settings and make flight missions with keyboards and a mouse.
+You can connect the drone to an android tablet using USB OTG, the same as a PC. Using a tablet, you can monitor the drone's status and telemetry data when you are out in the field. However, using a laptop PC is recommended if you want to change detailed settings.
 
 
 ## How to Make Survey Missions in Mission Planner
@@ -103,6 +103,15 @@ You can also set the default altitude for your waypoints by setting "Default Alt
     ![Image title](_attachments/Pasted_image_20240315194055.jpg)
 
 8. Arm the motors by pressing the left stick to the lower right corner and hold it.
+
+*Note* GEMINI drone controller is MODE 2 to comply with most recent drone pilots. If you want to change the controller setting, please refer below:
+
+[What is the difference between Mode 1 and Mode 2?](https://www.modelflight.com.au/blog/difference-between-mode-1-vs-mode-2?srsltid=AfmBOoqD12TmORQycLJ9knHdwYFnJvb8uMm98uQtcYdJ-fLbl2JrlE2u)
+
+[Flysky FS-i6X Transmitter Mode 1 To Mode 2 Modification](https://www.youtube.com/watch?v=F79aGFrKG7U&t)
+
+[FlySky FSi6 - MODE 1 or MODE 2 Setup](https://www.youtube.com/watch?app=desktop&v=PiR5fYBfUKg&t0)
+
 ![Image title](_attachments/Pasted_image_20240315195741.jpg)
 
 9. Now you can fly the drone.
@@ -118,7 +127,9 @@ You can also set the default altitude for your waypoints by setting "Default Alt
 ![Image title](_attachments/20240302_123729.jpg)
 ![Image title](_attachments/Pasted_image_20240315194055.jpg)
 
-4. Arm the motors by pressing the left stick to the lower right corner and hold it.
+4. Arm the motors by pressing the left stick to the lower right corner and hold it. 
+
+
 ![Image title](_attachments/Pasted_image_20240315195741.jpg)
 
 5. Lift the Throttle to 20~30% and Toggle the Auto switch. It will automatically launch and start the mission.
