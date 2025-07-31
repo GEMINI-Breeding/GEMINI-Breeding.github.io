@@ -1,6 +1,7 @@
 ---
 title: Drone Operation Manual
 ---
+# Drone Operation Manual
 ## Installing Mission Planner
 You can follow the instructions from [Installing Mission Planner — Mission Planner documentation](https://ardupilot.org/planner/docs/mission-planner-installation.html){:target="_blank"}
 
@@ -139,3 +140,56 @@ You can also set the default altitude for your waypoints by setting "Default Alt
 
 ## Useful videos
 [Introduction to Mission Planner - YouTube](https://www.youtube.com/watch?v=6OdcdR8hjd0&t=350s){:target="_blank"}
+
+
+# How to use drone battery charger
+## Introduction
+This document explains how to charge a drone battery using a drone battery charger. After reading this, you will know how to charge a drone battery, how to set the battery voltage to storage mode after a flight, precautions to take when charging the battery, and how to respond in case of errors.
+
+### Battery specs
+
+GEMINI Custom drones come with 7000 ~ 10000 mAh Lithium polymer batteries.
+The maximum possible flight time varies depending on the battery capacity and the drone’s payload, but generally, about 25 minutes of flight is possible.
+
+### Charger specs
+For this project, we use a charger capable of balance charging lithium polymer batteries. Balance charging means equalizing the voltage of each cell when multiple cells, such as in a 6S Lipo battery, are connected. The battery connector used is an XT60 connector.
+
+## Charging instructions
+### Setting up charger
+Open the box and find the cables. The first cable is a banana plug to XT60 plug converter. Connect the two banana cables to the charger, paying attention to the red (+) and black (-) colors.
+
+Next, connect the balance port extension board. Connect the balance board extension cable from the box to the charger main unit, and then connect the cable to the extension board.
+
+![](attachment/62b38675fc5d241d4afa05f01d311d40.jpg)
+Plug the charger’s main power cable into a wall outlet and turn on the power switch on the back of the main unit.
+
+![](attachment/b8df5a0765841078f1ffef76aa47c5e6.jpg)
+
+### Charger setting
+The charger consists of two independently operating units in one main body; Unit 1 controls the left port, and Unit 2 controls the right port.
+![](attachment/003af87581489fea91200f4d184386b6.jpg)
+When you first start the charger, the PROGRAM SELECT screen will appear. Use the (+) and (-) buttons to select the Lithium BATT screen, then press the ▶️ button to select it. The LiPo Balance CHG screen will then appear.
+
+![](attachment/d96404ecaa729510712c66bdb841d4e0.jpg)
+
+Next, connect the battery. After connecting the battery, check that the voltage setting is at 22.2V (6S). If the voltage setting is incorrectly set to 18.5 (5S) or similar, press the ▶️ button to make it blink, then set it to 22.2V (6S).
+
+![](attachment/37ec3f9f21b381104edadd508c25c129.jpg)
+
+Next, press and hold the ▶️ button to start charging. The charger will check if the connected battery’s voltage matches the charging specs, and if not, an error will appear.
+![](attachment/030bdafb4d65c7ad0421f2ba6fc2e611.jpg)
+
+If everything is normal, press the ▶️ button once more to start charging. Wait about 2 hours for a full charge.
+![](attachment/4e44dfa7d1e67919a77bf7d38b7fed13.jpg)
+
+While charging, you can press the (+) button to check the voltage of each cell. If the voltage of a particular cell is too low or too high, it is likely that there is a problem with the battery, so it is recommended to stop charging the battery.
+
+![](attachment/67f4484f03b0b20c191bbe486456193b.jpg)
+
+By pressing the (–) button, you can view the charging parameters. Here, you can check whether the final voltage is set appropriately, as well as how the charge capacity cut-off and charge time cut-off are configured. If you wish to change these settings, please refer to the manufacturer's user manual.
+![](attachment/635da8d8b8421e89cc7b3a9a9e94f907.jpg)![](attachment/9cd93fb57f4d462eec5fe2af3b25d5d8.png)
+### Battery storage mode
+
+Lithium polymer batteries used in drones should not be stored for more than a week in a fully discharged or fully charged state, as this can shorten battery lifespan and cause malfunctions. Therefore, when storing drone batteries for an extended period without use, it is recommended to charge or discharge each cell to the storage voltage of 3.8V. On the charger, press the ▶️ button to make the charger mode setting blink, then press the (-) or (+) button to switch from Balance CHG to Storage mode. Next, press and hold the ▶️ button to enter Storage mode.
+
+![](attachment/2cf1fe7e7833d77d1f792e052912298c.jpg)
