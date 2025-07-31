@@ -1,8 +1,8 @@
 ---
 title: Drone Operation Manual
 ---
-# Drone Operation Manual
-## Installing Mission Planner
+## Drone Operation Manual
+### Installing Mission Planner
 You can follow the instructions from [Installing Mission Planner — Mission Planner documentation](https://ardupilot.org/planner/docs/mission-planner-installation.html){:target="_blank"}
 
 For Android Tablets, you can download and install this APK file: 
@@ -11,12 +11,12 @@ For Android Tablets, you can download and install this APK file:
 
 - [com.michaeloborne.MissionPlanner-signed.apk](https://github.com/ArduPilot/MissionPlanner/releases/download/latest/com.michaeloborne.MissionPlanner-signed.apk){:target="_blank"}
 
-## Using a Tablet or PC?
+### Using a Tablet or PC?
 
 You can connect the drone to an android tablet using USB OTG, the same as a PC. Using a tablet, you can monitor the drone's status and telemetry data when you are out in the field. However, using a laptop PC is recommended if you want to change detailed settings.
 
 
-## How to Make Survey Missions in Mission Planner
+### How to Make Survey Missions in Mission Planner
 1. Open the Mission Planner program.
     ![Image title](_attachments/Screenshot_2024-03-15_at_1.20.14_PM.jpg)
 1. Click "Plan".
@@ -69,7 +69,7 @@ You can also set the default altitude for your waypoints by setting "Default Alt
 8. Write the waypoints to the drone when it's connected to the Mission Planner Software.
 ![Image title](_attachments/Screenshot_2024-03-15_at_4.52.57_PM.jpg)
 
-## How to Prepare the Drone Flight
+### How to Prepare the Drone Flight
 1. Open the box and bring out the drone.
     ![Image title](_attachments/Pasted_image_20240315194219.jpg)
     ![Image title](_attachments/Pasted_image_20240315194227.jpg)
@@ -120,7 +120,7 @@ You can also set the default altitude for your waypoints by setting "Default Alt
 10.  To disarm the motors after the flight, press the left stick to the lower left corner and hold it.
 ![Image title](_attachments/Pasted_image_20240315195927.jpg)
 
-## How to Start the Auto Mission
+### How to Start the Auto Mission
 1. Follow the instructions from #How to prepare the drone flight
 2. Write the waypoints to the drone when it's connected to the Mission Planner Software.
 ![Image title](_attachments/Screenshot_2024-03-15_at_4.52.57_PM.jpg)
@@ -138,12 +138,12 @@ You can also set the default altitude for your waypoints by setting "Default Alt
 
 6. If you set auto landing, it will return to the launch position and automatically land. If you did not set the auto return, it will stay at the last waypoint in the Mission, and you will have to land the drone manually.
 
-## Useful videos
+### Useful videos
 [Introduction to Mission Planner - YouTube](https://www.youtube.com/watch?v=6OdcdR8hjd0&t=350s){:target="_blank"}
 
 
-# How to use drone battery charger
-## Introduction
+## How to use drone battery charger
+### Introduction
 This document explains how to charge a drone battery using a drone battery charger. After reading this, you will know how to charge a drone battery, how to set the battery voltage to storage mode after a flight, precautions to take when charging the battery, and how to respond in case of errors.
 
 ### Battery specs
@@ -154,7 +154,6 @@ The maximum possible flight time varies depending on the battery capacity and th
 ### Charger specs
 For this project, we use a charger capable of balance charging lithium polymer batteries. Balance charging means equalizing the voltage of each cell when multiple cells, such as in a 6S Lipo battery, are connected. The battery connector used is an XT60 connector.
 
-## Charging instructions
 ### Setting up charger
 Open the box and find the cables. The first cable is a banana plug to XT60 plug converter. Connect the two banana cables to the charger, paying attention to the red (+) and black (-) colors.
 
