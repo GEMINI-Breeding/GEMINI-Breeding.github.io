@@ -5,7 +5,11 @@ To navigate to the image processing page, click on the `Process` Icon. Use the i
 
 ## Orthomosaic Generation
 
+### OpenDroneMap
+
 - **NOTE**: To maximize orthomosaic output resolution, upload a gcp_locations.csv file in the `Upload` tab.
+  - You can also upload the GCP file right after selecting `Start` in the dropdown.
+- Under the `Orthomosaic Method` dropdown, select OpenDroneMap. This is recommended for Aerial data with vertical and horizontal overlap.
 - After uploading image files to the app, orthomosaic generation can be performed. 
 - Expand the dropdown menu of the correct platform and sensor type to select the date to perform generation on. 
 - Click the `Start` button to open the orthomosaic generation window. Use the `Previous` and `Next` buttons or the selection bar to iterate through images to mark all visible ground control points (GCPs) if a GCP Locations file was uploaded. If a GCP is placed in error, points can be removed by right-clicking.
@@ -14,6 +18,11 @@ To navigate to the image processing page, click on the `Process` Icon. Use the i
 - Follow the progress of orthomosaic generation by observing the progress bar at the bottom of the page. Progress can also be monitored via the logs, which can be opened using the arrow on the right side of the progress bar.
 - Processing may take up to 2 hours with large image datasets. To decrease processing time, use the `Custom` setting with an increased `orthophoto-resolution` flag. For example, the `Custom` setting with `--orthophoto-resolution 1.0` would decrease processing time by a large amount. 
 - If any issues are seen with the output orthophoto using the viewer in the `Manage Orthomosaics` window, check the `GEMINI-App-Data/temp/project/code/odm_report/report.pdf` file for more details on the issues / GCP errors encountered during processing. 
+
+### AgRowStitch
+
+- Under the `Orthomosaic Method` dropdown, select OpenDroneMap. This is recommended for Aerial data with vertical and horizontal overlap.
+- For now, you can skip the GCP picking process and directly select `Generate Orthophoto`.
 
 ## Plot Boundary Preparation
 
@@ -52,30 +61,27 @@ To navigate to the image processing page, click on the `Process` Icon. Use the i
 - Use the options in the top right to modify the placement of individual rectangles, or all at once using `Select All`. 
 - When finished, click `Save`.
 ![Plot Boundary](_attachments/process/plot_bound.png)
+
+**Assign Plot Labels**
+
+- If an AgRowStitch option is selected, this step should automatically appear.
+- After defining the plot boundaries, select the date you have used for plot boundary prep in the dropdown.
+- Press `Associate Plots with Boundaries`
+
+## Processing
+
+**Predict**
+
+- **NOTE**: This currently only works with ground-based data generated through AgRowStitch.
+- Run inference on the cloud or locally
+  - Cloud inference requires roboflow credits
+  - Local ifnerence requires a basic plan or above
+- Insert your API Key and Model ID
+- Select your Date, Platform, Sensor and Orthomosaic to run inference on
+
 ## Aerial Processing
 
 - After preparing the plot boundary, aerial traits can be processed.
 - To process traits, click `Start` on the appropriate date's traits column. Click `Analyze` to begin processing.
 - If traits need to be processed more than once, click on the blue checkbox and click `Analyze` again.
 - In the future, the **Teach Traits** tab will allow for use of trainable aerial models.
-
-## Ground Processing
-
-**Locate Plants**
-
-- This functionality locates each plant for a given population. Each of these tasks must be done sequentially:
-    - ***Labels***: Upload labels of plants using CVAT for a given date. To open CVAT, click the Annotate button. After annotating in CVAT, export your label in YOLO format, and then upload your .txt label files here. Press Upload when finished.
-    - ***Model***: Train a deep learning model for individual plant detection. Each model trained can be tracked using its Model ID. Best performing models are recommended to use for Locations.
-    - ***Locations***: Locate each plant in a population for a given date. The user inputs their model of choice to run this function. Best performing models are recommended to use for Locations. 
-
-**Label Traits**
-
-- This section allows users to upload their annotations for each trait. To open CVAT, click the Annotate button. After annotating in CVAT, export your label in YOLO format, and then upload your .txt label files here. Press Upload when finished.
-
-**Teach Traits**
-
-- This section train models to detect the selected trait. First, select a trait to teach. Then, input the platform, sensor and date of choice to train the model.
-
-**Extract Traits**
-
-- This section allows users to extract the selected trait for a given population and date. First, select a trait to teach. Then, input the platform, sensor and date of choice to extract the specified trait. It is recommended to use the highest performing model and locations.
