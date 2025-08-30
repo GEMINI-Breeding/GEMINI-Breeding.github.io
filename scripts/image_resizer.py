@@ -63,7 +63,7 @@ def process_markdown(markdown_path, width, delete_unused):
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--input_markdown', type=str, default="docs/2. Hardware/Drone/2 - iPhone add-on for DJI Phantom 4.md")
+    parser.add_argument('--input_markdown', type=str, default="/Users/lion397/Library/CloudStorage/SynologyDrive-NVME/codes/GEMINI/GEMINI-Breeding.github.io/docs/2. Hardware/Drone/3 - Drone SOP.md")
     parser.add_argument('--width', type=int, default=640)
     parser.add_argument('--delete_unused', type=bool, default=False)
     args = parser.parse_args()
