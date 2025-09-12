@@ -27,3 +27,4 @@ six==1.16.0
 urllib3==2.2.2
 watchdog==4.0.0
 mkdocs-glightbox
+mkdocs-pdf
