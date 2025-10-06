@@ -71,7 +71,7 @@ npm install --legacy-peer-deps # Fix the upstream dependency conflict
 - Create a directory `GEMINI-App-Data` in your home directory (`mkdir ~/GEMINI-App-Data`).
     - If this directory is created anywhere else, the path listed in `GEMINI-App/gemini-app/package.json` must be modified:
 
-![package.json Path](_attachments/install/packageJsonPath.png)
+![package.json Path](_attachments/install/appdata.jpg)
 
 - This path must point to a `GEMINI-App-Data` directory for the app to function.
 - Create and add your [Map Box Access Token](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"} to the `.env` file in the `gemini-app` directory like below. This is necessary for map functionality. 
