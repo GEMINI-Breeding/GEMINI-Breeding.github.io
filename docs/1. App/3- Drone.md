@@ -8,9 +8,21 @@ To navigate to the file upload page, click on the `Upload` Icon.
 
 ### Data Types
 
-**Image Data**: This is the raw image files taken from the sensing platforms. These group of images should be coming from an individual sensor. Some image types include: `jpg`, `jpeg`, `png` or `tif`
+**Image Data**: This is the raw image files taken from the sensing platforms. These group of images should be coming from an individual sensor. Some image types include: `jpg`, `jpeg`, `png` or `tif`. If your images do not contain EXIF metadata, you will need to upload a separate file called `msgs_synced.csv` under the data type Platform Logs.
 
 **GCP Locations**: This is a `csv` file containing locations of GCPs. The first column should contain the label, the second column contains latitude and the third column contains longitude.
+
+**Platform Logs**: 
+
+If you are missing EXIF metadata in your images, you need to upload a separate file and name it `msgs_synced.csv` under this datatype. This file should contain these columns:
+
+- `image_path`: This contains the name of the image (image_0000.jpg). The full path will be built after uploading the final file.
+- `time`: Date and time when the image is taken (YYYY:MM:DD HH:MM:SS)
+- `lat`: Latitude in decimal degrees
+- `lon`: Longitude in decimal degrees
+- `alt`: Altitude in meters
+
+![Sample Msgs](_attachments/file-upload/sample_msgs_synced.png)
 
 *Example GCP Locations*
 
