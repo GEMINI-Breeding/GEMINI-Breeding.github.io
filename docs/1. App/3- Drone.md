@@ -30,6 +30,8 @@ If you are missing EXIF metadata in your images, you need to upload a separate f
 
 ![Sample Msgs](_attachments/file-upload/sample_msgs_synced.png)
 
+You can also upload drone logs into this datatype. You can check the *Drone Operation Manual* section for more information.
+
 ### Data Fields
 
 **Year**: This is the year `YYYY` the data was collected. It is a required field. For example, `2022` is a valid year.
