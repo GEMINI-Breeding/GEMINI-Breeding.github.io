@@ -12,6 +12,10 @@ To navigate to the file upload page, click on the `Upload` Icon.
 
 **GCP Locations**: This is a `csv` file containing locations of GCPs. The first column should contain the label, the second column contains latitude and the third column contains longitude.
 
+*Example GCP Locations*
+
+![GCP Locations](_attachments/file-upload/gcp_locations.png)
+
 **Platform Logs**: 
 
 If you are missing EXIF metadata in your images, you need to upload a separate file and name it `msgs_synced.csv` under this datatype. This file should contain these columns:
@@ -22,11 +26,9 @@ If you are missing EXIF metadata in your images, you need to upload a separate f
 - `lon`: Longitude in decimal degrees
 - `alt`: Altitude in meters
 
+*Example msgs_synced.csv file*
+
 ![Sample Msgs](_attachments/file-upload/sample_msgs_synced.png)
-
-*Example GCP Locations*
-
-![GCP Locations](_attachments/file-upload/gcp_locations.png)
 
 ### Data Fields
 
