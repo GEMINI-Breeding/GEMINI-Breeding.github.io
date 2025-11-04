@@ -2,115 +2,298 @@
 title: Start Guide
 ---
 
-## **Windows**
+# Installation Guide
 
-- [Install WSL2](https://learn.microsoft.com/en-us/windows/wsl/install){:target="_blank"} before proceeding. Install the default Ubuntu distribution to avoid compatibility issues.
-- Access the WSL terminal by searching for and opening the Ubuntu application in the Windows start menu. Open a VSCode window from WSL by entering `code .` in the terminal.
-- Alternatively, WSL can be opened directly from VSCode using the `Connect to...` menu.
+## Quick Start with Docker Compose (Recommended)
 
-![Remote](_attachments/install/connectTo.png)
-![WSL Connect](_attachments/install/wsl.png)
+The easiest way to get started with the GEMINI App is using Docker Compose. This method automatically handles all dependencies and configurations.
 
-- Follow the [general installation and setup instructions](#install).
-- Install [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/){:target="_blank"}. 
-- Follow the instructions for [Configuring WSL2 with Docker Desktop](https://docs.docker.com/desktop/wsl/){:target="_blank"}. In the VSCode terminal, add your user to the docker group by entering `sudo usermod -aG docker $USER`. Use `newgrp docker` to force the change to take effect. Ensure the correct docker context is in use with `docker context use default`.
-- In the VSCode terminal, enter `sudo apt-get update && sudo apt-get install libgl1` to resolve dependency issues with the libgl1 library on WSL2.
+### Prerequisites
 
-## **MacOS**
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank"} for your operating system:
+  - [Windows](https://docs.docker.com/desktop/install/windows-install/){:target="_blank"}
+  - [MacOS](https://docs.docker.com/desktop/install/mac-install/){:target="_blank"}
+  - [Linux](https://docs.docker.com/desktop/install/linux-install/){:target="_blank"}
 
-- Follow the [general installation and setup instructions](#install).
-- Install [Docker Desktop](https://docs.docker.com/desktop/install/mac-install/){:target="_blank"}.
-- Install [XCode and CLI Tools](https://www.freecodecamp.org/news/how-to-download-and-install-xcode/){:target="_blank"}.
-- **Note**: The GEMINI App attempts to find an NVIDIA GPU to use with OpenDroneMap for orthomosaic generation. Due to the lack of a compatibile GPU on MacOS systems, the following error is expected:
+### Installation Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/GEMINI-Breeding/GEMINI-App.git
+   cd GEMINI-App
+   ```
+
+2. Configure environment variables (optional):
+   
+   Create a `.env` file in the `GEMINI-App` directory to customize ports and data directory:
+   
+   ```bash
+   # .env file for GEMINI-App
+   # MapBox Access Token (required for map functionality)
+   REACT_APP_MAPBOX_TOKEN=your.mapbox.access.token.here
+   
+   # Port Configuration
+   REACT_APP_FRONT_PORT=3000
+   REACT_APP_FLASK_PORT=5000
+   REACT_APP_TILE_SERVER_PORT=8091
+   PORT=$REACT_APP_FRONT_PORT
+   
+   # Application Data Directory (absolute path)
+   REACT_APP_APP_DATA=$HOME/GEMINI-App-Data
+   ```
+   
+   **Important Notes:**
+   - Get your MapBox token from [MapBox Access Tokens](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"}
+   - Comments must be on separate lines (inline comments are not supported)
+   - Use absolute paths for `REACT_APP_APP_DATA`
+   - Default values will be used if `.env` file is not present
+
+3. Run the application:
+
+   ```bash
+   # CPU version (default)
+   docker compose up --pull always
+   
+   # GPU version (if nvidia-smi works on host)
+   docker compose -f docker-compose-gpu.yml up --pull always
+   ```
+
+   **Note**: The `--pull always` flag ensures you're always using the latest Docker images.
+
+4. Access the application:
+   - Frontend: [http://localhost:3000](http://localhost:3000) (or your configured `REACT_APP_FRONT_PORT`)
+   - Backend API: [http://localhost:5000](http://localhost:5000) (or your configured `REACT_APP_FLASK_PORT`)
+   - Tile Server: [http://localhost:8091](http://localhost:8091) (or your configured `REACT_APP_TILE_SERVER_PORT`)
+
+### Docker Configuration
+
+#### Understanding docker-compose.yml
+
+The `docker-compose.yml` file defines how the GEMINI App runs in Docker. Here's what each section does:
+
+```yaml
+services:
+  app:
+    image: paibl/gemini-breeding:latest  # Pre-built Docker image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./gemini-app/.env  # Load environment variables
+    ports:
+      - "${REACT_APP_FRONT_PORT:-3000}:${REACT_APP_FRONT_PORT:-3000}"   # Frontend
+      - "${REACT_APP_FLASK_PORT:-5000}:${REACT_APP_FLASK_PORT:-5000}"   # Backend
+      - "${REACT_APP_TILE_SERVER_PORT:-8091}:${REACT_APP_TILE_SERVER_PORT:-8091}"  # Tile Server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Allow Docker-in-Docker
+      - ${REACT_APP_APP_DATA:-~/GEMINI-App-Data}:/root/GEMINI-App-Data  # Data directory
+      - ./gemini-app/.env:/app/gemini-app/.env:ro  # Environment variables (read-only)
 ```
-docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
+
+**Key Configuration Parameters:**
+
+- **Ports**: Maps host ports to container ports
+  - Format: `"host_port:container_port"`
+  - Default ports: 3000 (frontend), 5000 (backend), 8091 (tile server)
+  - Change these if ports are already in use on your system
+
+- **Volumes**:
+  - **Docker socket**: `/var/run/docker.sock` enables Docker-in-Docker for OpenDroneMap
+  - **Data directory**: `~/GEMINI-App-Data` stores all application data (images, orthomosaics, models)
+  - **Environment file**: `.env` file is mounted as read-only
+
+- **Environment Variables**: Loaded from `.env` file with fallback defaults
+
+#### Environment Variables (.env)
+
+The `.env` file allows you to customize the application without modifying code:
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `REACT_APP_MAPBOX_TOKEN` | MapBox API token for map display | - | Yes |
+| `REACT_APP_FRONT_PORT` | Frontend React app port | 3000 | No |
+| `REACT_APP_FLASK_PORT` | Backend Flask API port | 5000 | No |
+| `REACT_APP_TILE_SERVER_PORT` | Tile server port | 8091 | No |
+| `REACT_APP_APP_DATA` | Data directory path | ~/GEMINI-App-Data | No |
+
+**Important**: Make sure the data directory exists on your host machine:
+
+```bash
+mkdir -p ~/GEMINI-App-Data
 ```
 
-## **Linux**
+For more detailed configuration options, see the [docker-compose.yml](https://github.com/GEMINI-Breeding/GEMINI-App/blob/main/docker-compose.yml){:target="_blank"} file.
 
-- The recommended distro for the GEMINI App is Ubuntu. Other distros may encounter compatibility issues that will require further debugging.
-- Follow the [general installation and setup instructions](#install).
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank"} based on the instructions for your system. 
-- If your system has an NVIDIA GPU that should be used for orthophoto generation, install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html){:target="_blank"} and follow the relevant setup instructions.
-- In a terminal, enter `docker context use default` to use the Docker Engine instead of Docker Desktop for the GEMINI App Docker container.
-- If your system does not have a compatible NVIDIA GPU or the NVIDIA Container Toolkit is not installed and configured, the following error will be seen during orthophoto generation:
-```
-docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
-```
-- This error will lead to the CPU being used for orthophoto generation, which may result in longer generation time.
+### Updating the Application
 
-## Install
-- Access the [GEMINI-App repository](https://github.com/GEMINI-Breeding/GEMINI-App){:target="_blank"}. 
-- Clone into an IDE such as VSCode (recommended) using HTTPS or SSH. If using HTTPS, ensure your git credentials are populated via the terminal. If using SSH, make sure an [SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account){:target="_blank"} for your machine is available in your Github account.
+To update to the latest version:
 
-
-- Input the commands for setup listed on the GEMINI-App README.md:
-```
-# Download git submodules
-git submodule update --init --recursive
-
-# Install conda virtual environment
-cd GEMINI-Flask-Server
-./install_flask_server.sh
-cd ../
-
-# Install Node Version Manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-source ~/.bashrc
-
-# Install Node 18
-nvm install 18
-nvm use 18
-
-# Install dependencies
-cd gemini-app
-npm install --legacy-peer-deps # Fix the upstream dependency conflict
+```bash
+cd GEMINI-App
+docker compose down
+docker compose up --pull always
 ```
 
-## Setup
-- Create a directory `GEMINI-App-Data` in your home directory (`mkdir ~/GEMINI-App-Data`).
-    - If this directory is created anywhere else, the path listed in `GEMINI-App/gemini-app/package.json` must be modified:
+The `--pull always` flag will automatically download the latest Docker images before starting the containers.
 
-![package.json Path](_attachments/install/appdata.jpg)
+### Rebuilding Docker Images
 
-- This path must point to a `GEMINI-App-Data` directory for the app to function.
-- Create and add your [Map Box Access Token](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"} to the `.env` file in the `gemini-app` directory like below. This is necessary for map functionality. 
+If you've made local changes and need to rebuild:
+
+```bash
+# Rebuild and start
+docker compose up --build
+
+# Or rebuild specific services
+docker compose build
+docker compose up
 ```
-REACT_APP_MAPBOX_TOKEN=example.yourMapBoxAccessToken.1234
-```
 
-## Running the App
-- Finish the system-specific setup instructions above before proceeding: [Windows](#windows) | [MacOS](#macos) | [Linux](#linux)
-- Ensure Docker Desktop is running before running the GEMINI App (or Docker Engine if running ODM with GPU on Linux).
+---
 
-*In `GEMINI-App/gemini-app`:*
+## Platform-Specific Notes
 
-```
-# Run development server (front and server concurrently)
+### Windows
+
+- [Install WSL2](https://learn.microsoft.com/en-us/windows/wsl/install){:target="_blank"} for better Docker performance. Install the default Ubuntu distribution to avoid compatibility issues.
+- Ensure Docker Desktop is configured to use WSL2 backend.
+- Follow the instructions for [Configuring WSL2 with Docker Desktop](https://docs.docker.com/desktop/wsl/){:target="_blank"}.
+- The data directory path in WSL2: `~/GEMINI-App-Data` (equivalent to `/home/yourusername/GEMINI-App-Data`)
+- In your `.env` file, use Linux-style paths when running in WSL2
+
+### MacOS
+
+- Install [XCode and CLI Tools](https://www.freecodecamp.org/news/how-to-download-and-install-xcode/){:target="_blank"} for development.
+- **Note**: The GEMINI App attempts to find an NVIDIA GPU for OpenDroneMap orthomosaic generation. Due to the lack of a compatible GPU on MacOS systems, the following error is expected:
+  ```
+  docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
+  ```
+  The app will automatically fall back to CPU processing, which may result in longer processing times.
+
+### Linux
+
+- The recommended distribution for the GEMINI App is Ubuntu. Other distros may encounter compatibility issues.
+- If your system has an NVIDIA GPU for orthophoto generation:
+  1. Install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html){:target="_blank"}
+  2. Follow the relevant setup instructions
+  3. Use the GPU-enabled Docker Compose file:
+     ```bash
+     docker compose -f docker-compose-gpu.yml up --pull always
+     ```
+- If the NVIDIA Container Toolkit is not installed, the following error will appear during orthophoto generation:
+  ```
+  docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
+  ```
+  The app will fall back to CPU processing automatically.
+
+---
+
+## Advanced: Native Installation for Developers
+
+For developers who want to run the application natively without Docker:
+
+### Prerequisites
+
+- Git
+- Python 3.8+
+- Node.js 18
+- Docker Desktop (for OpenDroneMap container)
+
+### Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/GEMINI-Breeding/GEMINI-App.git
+   cd GEMINI-App
+   ```
+
+2. Initialize git submodules:
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+3. Set up Flask backend:
+   ```bash
+   cd GEMINI-Flask-Server
+   ./install_flask_server.sh
+   cd ../
+   ```
+
+4. Install Node Version Manager (NVM):
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+   source ~/.bashrc
+   ```
+
+5. Install Node 18:
+   ```bash
+   nvm install 18
+   nvm use 18
+   ```
+
+6. Install frontend dependencies:
+   ```bash
+   cd gemini-app
+   npm install --legacy-peer-deps  # Fix upstream dependency conflicts
+   ```
+
+### Setup
+
+1. Create the data directory:
+   ```bash
+   mkdir ~/GEMINI-App-Data
+   ```
+
+2. Configure the data path (if different from default):
+   - Open `GEMINI-App/gemini-app/package.json`
+   - Modify the path to point to your `GEMINI-App-Data` directory
+
+   ![package.json Path](_attachments/install/appdata.jpg)
+
+
+3. Create `.env` file for MapBox token:
+   - Navigate to `gemini-app` directory
+   - Create a `.env` file
+   - Add your [MapBox Access Token](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"}:
+   ```
+   REACT_APP_MAPBOX_TOKEN=your.mapbox.access.token.here
+   ```
+
+### Running the App
+
+Ensure Docker Desktop is running before starting the GEMINI App.
+
+In `GEMINI-App/gemini-app`:
+
+```bash
+# Run development server (frontend and backend concurrently)
 npm run gemini 
 
-# If you want to run front only 
+# Run frontend only
 npm run front
 
-# If you want to run flask server only
+# Run Flask server only
 npm run server
 ```
 
-## Updating the App
+### Updating Native Installation
 
-- Option 1: Auto-Update using start up script
-```
-# Navigate to GEMINI App folder
+#### Option 1: Auto-Update using startup script
+```bash
 cd GEMINI-App
-
-# Run the start up script
 ./startup.sh
 ```
 
-- Option 2: Update using git:
-```
-# Navigate to GEMINI App folder
+#### Option 2: Manual update using git
+```bash
 cd GEMINI-App
+
+# Stash any local changes
+git stash
+cd GEMINI-Flask-Server
+git stash
+cd ..
 
 # Pull changes
 git fetch
@@ -120,11 +303,62 @@ git pull
 git submodule update --init --recursive
 ```
 
-- Ensure you have any changes stashed to prevent any conflicts (`git stash` in both GEMINI-App and GEMINI-Flask-Server)
-  - This is automatically done in the start up script in Option 1.
+---
 
 ## Troubleshooting
-- If the path in `package.json` is not properly populated, a `Failed to upload file` error will appear. Make sure the path points to an existing and accessible directory. This error will also be seen if the Flask Server fails to start.
-- To ensure that the app is properly running in Docker, after the command `npm start gemini`, ensure that the terminal is NOT cleared (meaning you should be able to scroll up and see previous commands). If the terminal is cleared (you are unable to scroll up to view previous commands), the app is not running in Docker properly. Restart Docker and try again. 
-- Certain errors during orthophoto generation can be solved by manual deletion of the `~/GEMINI-App-Data/temp` directory. If generation is repeatedly failing, delete `temp` before the next attempt.
-- If you encounter an error during installation of `farm-ng-core` such as `error: variable length arrays in C++ are a Clang extension [-Werror,-Wvla-cxx-extension]`, it means the compiler is treating warnings as errors due to the `-Werror` flag. To resolve this, open the `setup.py` file inside the `farm-ng-core` directory and remove the `"-Werror"` entry from the `extra_compile_args` list. This will allow the build to proceed even when compiler warnings are present. (Common for MacOS users)
+
+### Docker-Related Issues
+
+- **Container fails to start**: 
+  - Ensure Docker Desktop is running and has sufficient resources allocated (recommended: 4GB RAM minimum)
+  - Check if `.env` file is properly formatted (no inline comments)
+
+- **Port conflicts**: 
+  - If ports 3000, 5000, or 8091 are already in use, modify the port mappings in `.env` file
+  - Example: Change `REACT_APP_FRONT_PORT=3000` to `REACT_APP_FRONT_PORT=3050`
+
+- **Volume mount issues**: 
+  - Verify that `~/GEMINI-App-Data` exists and has proper permissions
+  - Check that the path in `.env` file is absolute, not relative
+  - On Windows WSL2, ensure you're using Linux-style paths
+
+- **Environment variable not loading**:
+  - Ensure `.env` file is in the correct location (`GEMINI-App/` directory)
+  - Check for syntax errors (comments must be on separate lines)
+  - Restart containers after modifying `.env`: `docker compose down && docker compose up`
+
+### Native Installation Issues
+
+- **Failed to upload file error**: 
+  - Check that the path in `package.json` points to an existing and accessible `GEMINI-App-Data` directory
+  - Verify the Flask Server started successfully
+  - Check terminal logs for Flask Server errors
+
+- **Terminal cleared during npm start**: 
+  - If you cannot scroll up to see previous commands after running `npm start gemini`, Docker is not running properly
+  - Restart Docker Desktop and try again
+
+- **Orthophoto generation failures**: 
+  - Manually delete the `~/GEMINI-App-Data/temp` directory
+  - Try generation again
+  - Check Docker logs for OpenDroneMap container errors
+
+- **farm-ng-core installation error** (MacOS): 
+  - If you see: `error: variable length arrays in C++ are a Clang extension [-Werror,-Wvla-cxx-extension]`
+  - Open `setup.py` inside the `farm-ng-core` directory
+  - Remove `"-Werror"` from the `extra_compile_args` list
+  - Retry installation
+
+- **WSL2-specific issues** (Windows):
+  - Install libgl1 library: `sudo apt-get update && sudo apt-get install libgl1`
+  - Add user to docker group: `sudo usermod -aG docker $USER`
+  - Apply changes: `newgrp docker`
+  - Verify Docker context: `docker context use default`
+
+### Getting Help
+
+If you encounter issues not covered here:
+
+1. Check the [Full Documentation](https://gemini-breeding.github.io/){:target="_blank"}
+2. Review [GitHub Issues](https://github.com/GEMINI-Breeding/GEMINI-App/issues){:target="_blank"}
+3. Create a new issue with detailed error logs and system information
