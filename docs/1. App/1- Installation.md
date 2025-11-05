@@ -10,61 +10,65 @@ The easiest way to get started with the GEMINI App is using Docker Compose. This
 
 ### Prerequisites
 
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank"} for your operating system:
-  - [Windows](https://docs.docker.com/desktop/install/windows-install/){:target="_blank"}
-  - [MacOS](https://docs.docker.com/desktop/install/mac-install/){:target="_blank"}
-  - [Linux](https://docs.docker.com/desktop/install/linux-install/){:target="_blank"}
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank"} for your operating system:
+
+- [Windows](https://docs.docker.com/desktop/install/windows-install/){:target="_blank"}
+- [MacOS](https://docs.docker.com/desktop/install/mac-install/){:target="_blank"}
+- [Linux](https://docs.docker.com/desktop/install/linux-install/){:target="_blank"}
 
 ### Installation Steps
 
-1. Clone the repository:
+1. Clone the repository
 
-   ```bash
-   git clone https://github.com/GEMINI-Breeding/GEMINI-App.git
-   cd GEMINI-App
-   ```
+        git clone https://github.com/GEMINI-Breeding/GEMINI-App.git
+        cd GEMINI-App
 
-2. Configure environment variables (optional):
-   
-   Create a `.env` file in the `GEMINI-App` directory to customize ports and data directory:
-   
-   ```bash
-   # .env file for GEMINI-App
-   # MapBox Access Token (required for map functionality)
-   REACT_APP_MAPBOX_TOKEN=your.mapbox.access.token.here
-   
-   # Port Configuration
-   REACT_APP_FRONT_PORT=3000
-   REACT_APP_FLASK_PORT=5000
-   REACT_APP_TILE_SERVER_PORT=8091
-   PORT=$REACT_APP_FRONT_PORT
-   
-   # Application Data Directory (absolute path)
-   REACT_APP_APP_DATA=$HOME/GEMINI-App-Data
-   ```
-   
-   **Important Notes:**
-   - Get your MapBox token from [MapBox Access Tokens](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"}
-   - Comments must be on separate lines (inline comments are not supported)
-   - Use absolute paths for `REACT_APP_APP_DATA`
-   - Default values will be used if `.env` file is not present
+2. Create the data directory:
 
-3. Run the application:
+        mkdir ~/GEMINI-App-Data
 
-   ```bash
-   # CPU version (default)
-   docker compose up --pull always
-   
-   # GPU version (if nvidia-smi works on host)
-   docker compose -f docker-compose-gpu.yml up --pull always
-   ```
+3. Optional: Customize the environment variables
 
-   **Note**: The `--pull always` flag ensures you're always using the latest Docker images.
+    Open the `.env` file in the `GEMINI-App` directory to customize ports and data directory
+
+        # .env file for GEMINI-App
+        # MapBox Access Token (required for map functionality)
+        REACT_APP_MAPBOX_TOKEN=your.mapbox.access.token.here
+
+        # Port Configuration
+        REACT_APP_FRONT_PORT=3000
+        REACT_APP_FLASK_PORT=5050
+        REACT_APP_TILE_SERVER_PORT=8091
+        PORT=$REACT_APP_FRONT_PORT
+
+        # Application Data Directory (absolute path)
+        REACT_APP_APP_DATA=$HOME/GEMINI-App-Data
+
+    **Notes:**
+
+    - Get your MapBox token from [MapBox Access Tokens](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"}
+    - Comments must be on separate lines (inline comments are not supported)
+    - Use absolute paths for `REACT_APP_APP_DATA`
+    - Default values will be used if `.env` file is not present
+
+4. Run the application
+
+        # CPU version (default)
+        docker compose up --pull always
+
+        # GPU version (if nvidia-smi works on host)
+        docker compose -f docker-compose-gpu.yml up --pull always
+
+    **Note**: The `--pull always` flag ensures you're always using the latest Docker images.
 
 4. Access the application:
-   - Frontend: [http://localhost:3000](http://localhost:3000) (or your configured `REACT_APP_FRONT_PORT`)
-   - Backend API: [http://localhost:5000](http://localhost:5000) (or your configured `REACT_APP_FLASK_PORT`)
-   - Tile Server: [http://localhost:8091](http://localhost:8091) (or your configured `REACT_APP_TILE_SERVER_PORT`)
+
+    - Frontend: [http://localhost:3000](http://localhost:3000) (or your configured `REACT_APP_FRONT_PORT`)
+
+    For debugging:
+
+    - Backend API: [http://localhost:5050](http://localhost:5050) (or your configured `REACT_APP_FLASK_PORT`)
+    - Tile Server: [http://localhost:8091](http://localhost:8091) (or your configured `REACT_APP_TILE_SERVER_PORT`)
 
 ### Docker Configuration
 
@@ -83,7 +87,7 @@ services:
       - ./gemini-app/.env  # Load environment variables
     ports:
       - "${REACT_APP_FRONT_PORT:-3000}:${REACT_APP_FRONT_PORT:-3000}"   # Frontend
-      - "${REACT_APP_FLASK_PORT:-5000}:${REACT_APP_FLASK_PORT:-5000}"   # Backend
+      - "${REACT_APP_FLASK_PORT:-5050}:${REACT_APP_FLASK_PORT:-5050}"   # Backend
       - "${REACT_APP_TILE_SERVER_PORT:-8091}:${REACT_APP_TILE_SERVER_PORT:-8091}"  # Tile Server
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Allow Docker-in-Docker
@@ -94,34 +98,16 @@ services:
 **Key Configuration Parameters:**
 
 - **Ports**: Maps host ports to container ports
-  - Format: `"host_port:container_port"`
-  - Default ports: 3000 (frontend), 5000 (backend), 8091 (tile server)
-  - Change these if ports are already in use on your system
+    - Format: `"host_port:container_port"`
+    - Default ports: 3000 (frontend), 5050 (backend), 8091 (tile server)
+    - Change these if ports are already in use on your system
 
 - **Volumes**:
-  - **Docker socket**: `/var/run/docker.sock` enables Docker-in-Docker for OpenDroneMap
-  - **Data directory**: `~/GEMINI-App-Data` stores all application data (images, orthomosaics, models)
-  - **Environment file**: `.env` file is mounted as read-only
+    - **Docker socket**: `/var/run/docker.sock` enables Docker-in-Docker for OpenDroneMap
+    - **Data directory**: `~/GEMINI-App-Data` stores all application data (images, orthomosaics, models)
+    - **Environment file**: `.env` file is mounted as read-only
 
 - **Environment Variables**: Loaded from `.env` file with fallback defaults
-
-#### Environment Variables (.env)
-
-The `.env` file allows you to customize the application without modifying code:
-
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `REACT_APP_MAPBOX_TOKEN` | MapBox API token for map display | - | Yes |
-| `REACT_APP_FRONT_PORT` | Frontend React app port | 3000 | No |
-| `REACT_APP_FLASK_PORT` | Backend Flask API port | 5000 | No |
-| `REACT_APP_TILE_SERVER_PORT` | Tile server port | 8091 | No |
-| `REACT_APP_APP_DATA` | Data directory path | ~/GEMINI-App-Data | No |
-
-**Important**: Make sure the data directory exists on your host machine:
-
-```bash
-mkdir -p ~/GEMINI-App-Data
-```
 
 For more detailed configuration options, see the [docker-compose.yml](https://github.com/GEMINI-Breeding/GEMINI-App/blob/main/docker-compose.yml){:target="_blank"} file.
 
@@ -178,14 +164,18 @@ docker compose up
   1. Install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html){:target="_blank"}
   2. Follow the relevant setup instructions
   3. Use the GPU-enabled Docker Compose file:
-     ```bash
-     docker compose -f docker-compose-gpu.yml up --pull always
-     ```
+
+```bash
+docker compose -f docker-compose-gpu.yml up --pull always
+```
+
 - If the NVIDIA Container Toolkit is not installed, the following error will appear during orthophoto generation:
-  ```
-  docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
-  ```
-  The app will fall back to CPU processing automatically.
+
+```
+docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]].
+```
+
+The app will fall back to CPU processing automatically.
 
 ---
 
@@ -203,62 +193,38 @@ For developers who want to run the application natively without Docker:
 ### Installation Steps
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/GEMINI-Breeding/GEMINI-App.git
-   cd GEMINI-App
-   ```
+
+        git clone https://github.com/GEMINI-Breeding/GEMINI-App.git
+        cd GEMINI-App
 
 2. Initialize git submodules:
-   ```bash
-   git submodule update --init --recursive
-   ```
+
+        git submodule update --init --recursive
 
 3. Set up Flask backend:
-   ```bash
-   cd GEMINI-Flask-Server
-   ./install_flask_server.sh
-   cd ../
-   ```
+
+        cd GEMINI-Flask-Server
+        ./install_flask_server.sh
+        cd ../
+
 
 4. Install Node Version Manager (NVM):
-   ```bash
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-   source ~/.bashrc
-   ```
+
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+        source ~/.bashrc
+
 
 5. Install Node 18:
-   ```bash
-   nvm install 18
-   nvm use 18
-   ```
+
+        nvm install 18
+        nvm use 18
+
 
 6. Install frontend dependencies:
-   ```bash
-   cd gemini-app
-   npm install --legacy-peer-deps  # Fix upstream dependency conflicts
-   ```
 
-### Setup
+        cd gemini-app
+        npm install --legacy-peer-deps  # Fix upstream dependency conflicts
 
-1. Create the data directory:
-   ```bash
-   mkdir ~/GEMINI-App-Data
-   ```
-
-2. Configure the data path (if different from default):
-   - Open `GEMINI-App/gemini-app/package.json`
-   - Modify the path to point to your `GEMINI-App-Data` directory
-
-   ![package.json Path](_attachments/install/appdata.jpg)
-
-
-3. Create `.env` file for MapBox token:
-   - Navigate to `gemini-app` directory
-   - Create a `.env` file
-   - Add your [MapBox Access Token](https://docs.mapbox.com/help/glossary/access-token/){:target="_blank"}:
-   ```
-   REACT_APP_MAPBOX_TOKEN=your.mapbox.access.token.here
-   ```
 
 ### Running the App
 
@@ -309,47 +275,55 @@ git submodule update --init --recursive
 
 ### Docker-Related Issues
 
-- **Container fails to start**: 
+**Container fails to start**: 
+
   - Ensure Docker Desktop is running and has sufficient resources allocated (recommended: 4GB RAM minimum)
   - Check if `.env` file is properly formatted (no inline comments)
 
-- **Port conflicts**: 
-  - If ports 3000, 5000, or 8091 are already in use, modify the port mappings in `.env` file
+**Port conflicts**: 
+  - If ports 3000, 5050, or 8091 are already in use, modify the port mappings in `.env` file
   - Example: Change `REACT_APP_FRONT_PORT=3000` to `REACT_APP_FRONT_PORT=3050`
 
-- **Volume mount issues**: 
+**Volume mount issues**: 
+
   - Verify that `~/GEMINI-App-Data` exists and has proper permissions
   - Check that the path in `.env` file is absolute, not relative
   - On Windows WSL2, ensure you're using Linux-style paths
 
-- **Environment variable not loading**:
+**Environment variable not loading**:
+
   - Ensure `.env` file is in the correct location (`GEMINI-App/` directory)
   - Check for syntax errors (comments must be on separate lines)
   - Restart containers after modifying `.env`: `docker compose down && docker compose up`
 
 ### Native Installation Issues
 
-- **Failed to upload file error**: 
+**Failed to upload file error**: 
+
   - Check that the path in `package.json` points to an existing and accessible `GEMINI-App-Data` directory
   - Verify the Flask Server started successfully
   - Check terminal logs for Flask Server errors
 
-- **Terminal cleared during npm start**: 
+**Terminal cleared during npm start**: 
+
   - If you cannot scroll up to see previous commands after running `npm start gemini`, Docker is not running properly
   - Restart Docker Desktop and try again
 
-- **Orthophoto generation failures**: 
+**Orthophoto generation failures**: 
+
   - Manually delete the `~/GEMINI-App-Data/temp` directory
   - Try generation again
   - Check Docker logs for OpenDroneMap container errors
 
-- **farm-ng-core installation error** (MacOS): 
+**farm-ng-core installation error** (MacOS): 
+
   - If you see: `error: variable length arrays in C++ are a Clang extension [-Werror,-Wvla-cxx-extension]`
   - Open `setup.py` inside the `farm-ng-core` directory
   - Remove `"-Werror"` from the `extra_compile_args` list
   - Retry installation
 
-- **WSL2-specific issues** (Windows):
+**WSL2-specific issues** (Windows):
+
   - Install libgl1 library: `sudo apt-get update && sudo apt-get install libgl1`
   - Add user to docker group: `sudo usermod -aG docker $USER`
   - Apply changes: `newgrp docker`
