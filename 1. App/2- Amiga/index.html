@@ -1,0 +1,1612 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1-%20Installation/">
+      
+      
+        <link rel="next" href="../3-%20Drone/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/gemini_small_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Amiga Data Processing - GEMINI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#upload-and-extract-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GEMINI Documentation" class="md-header__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEMINI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Amiga Data Processing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GEMINI Documentation" class="md-nav__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    GEMINI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. App
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. App
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-%20Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiga Data Processing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiga Data Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-and-extract-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload and Extract Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload and Extract Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uploading-amiga-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uploading Amiga Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-marking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Marking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stitch-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stitch Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stitch Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agrowstitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgRowStitch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-boundary-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Boundary Preparation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plot Boundary Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#population-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Population Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-plot-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assign Plot Labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-and-labeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training and Labeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predict
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trait-viewing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trait Viewing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-%20Drone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Data Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-%20Roboflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roboflow Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-%20Labeling%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labeling Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aerial%20Usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1">
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiga
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Amiga
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Amiga/1-%20AmigaQSG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Amiga/2-%20Recording/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recording SOPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Amiga/3-%20Autoplot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autoplot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Amiga/4-%20Custom%20Amiga%20Apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Amiga Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drone
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Drone/1%20-%202024-11-18%20Assembling%20propellers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building GEMINI Drone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Drone/2%20-%20iPhone%20add-on%20for%20DJI%20Phantom%204/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iPhone add-on for DJI Phantom 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Drone/3%20-%20Drone%20SOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Operation Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Drone/4%20-%20Ground%20Control%20Points%20%28GCPs%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Control Points (GCPs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather Station
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Weather Station
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Weather%20Station/1-%20Weather%20Station%20Build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.%20Hardware/Weather%20Station/2-%20Weather%20Station%20Use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20Setup/DAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Amiga Data Processing</h1>
+
+<h2 id="upload-and-extract-data">Upload and Extract Data</h2>
+<p>To navigate to the File Upload page, click on the <code>Upload</code> Icon. In the <strong>Upload Files</strong> section, select <code>Amiga File</code> as the data type from the dropdown.</p>
+<h3 id="data-fields"><strong>Data Fields</strong></h3>
+<p><strong>Year</strong>: This is the year <code>YYYY</code> the data was collected. It is a required field. For example, <code>2022</code> is a valid year.</p>
+<p><strong>Experiment</strong>: This is open for the user to decide. This will differentiate experiments for a single year. For example, <code>Experiment 1</code> is a valid experiment.</p>
+<p><strong>Location</strong>: This is the location where the data was collected. For example, <code>Davis</code> is a valid location.</p>
+<p><strong>Population</strong>: This is the type of plants you will be analyzing. For example, <code>Legumes</code> is a valid population.</p>
+<p><strong>Date</strong>: This is the date <code>YYYY-MM-DD</code> the data was collected. It is a required field. For example, <code>2022-06-20</code> is a valid date.</p>
+<h3 id="uploading-amiga-data"><strong>Uploading Amiga Data</strong></h3>
+<ul>
+<li>Fill in the data fields for the Amiga file(s) you wish to upload. </li>
+<li>Select the file(s) by dropping files in the dropzone or clicking the dropzone to open a file explorer popup.</li>
+<li>Alternatively, choose <code>Select Folder</code> if all binary files you wish to upload are in a single folder.</li>
+<li>The binary files will be uploaded to the app and extracted. Monitor the progress bar in the app to see the upload and extraction progress. For single-file extractions, the extraction progress bar is expected to jump from 0-100 when completed. For multiple files, the bar will update as each file is completed.</li>
+</ul>
+<h2 id="prepare-data">Prepare Data</h2>
+<p>Navigate to the <strong>Manage Files</strong> tab from the top of the File Upload page. Select <code>Amiga File</code> as the data type from the dropdown. </p>
+<h3 id="data-table"><strong>Data Table</strong></h3>
+<ul>
+<li>Navigate to the <code>Manage Files</code> tab to view uploaded data and prepare for processing. </li>
+<li>Hover over any of the action buttons in the <code>Actions</code> column to see their function.</li>
+</ul>
+<h3 id="plot-marking"><strong>Plot Marking</strong></h3>
+<ul>
+<li>For processing of Amiga data, plots must be marked in the file management tab before proceeding. </li>
+<li>Select <code>Amiga File</code> from the <strong>Data Type</strong> dropdown. </li>
+<li>Click the pin icon to open the plot marker.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/file-upload/pin.png" data-desc-position="bottom"><img alt="Plot Marker" src="../_attachments/file-upload/pin.png"></a></p>
+<p>The plot marker is used to associate images and their GPS coordinates with distinct plots within your field and create stitched images of each plot. Plot marking is performed on an initial date including all plots within the experiment and future dates will be filtered based on these initial plot borders.</p>
+<ul>
+<li>The primary functionality of the plot marker is to mark the start and end of each plot. </li>
+<li>To begin, navigate to the start of the first plot. Click the start button or press <strong>enter</strong> on your keyboard. </li>
+<li>Use the arrow keys, WASD, or a mouse to iterate to the end of the plot (Up / Down = Jump Forward 10 Images / Jump Back 10 Images). </li>
+<li>Align the overlaid midline with the end of the plot and click the stop button (or press enter) to mark the plot end. </li>
+<li>On your first plot, a popup will appear asking for <strong>Stitch Direction</strong>. This direction is based on the position of the end image with respect to the start.</li>
+<li>If you mistakenly toggle the start button, click the purple <strong>cancel</strong> button to reset.</li>
+<li>
+<p>Hover over the icons present on the screen for information on the button's functionality.</p>
+</li>
+<li>
+<p><strong>Plot Filtering</strong>: After marking all plots for a given date and associating plot labels / accessions with each, future dates will be filtered based on GPS data to automate the process. </p>
+<ul>
+<li>If the filtering does not appear to work, go to the GPS Data panel of the originally marked date. Choose a clear reference point (visible between dates, such as a flag or GCP) and click <code>Set as GPS Reference</code>. </li>
+<li>Re-open the plot marker of the newly extracted date. Open the GPS Data panel and click <code>Shift Plots</code>. After this completes, close and reopen the plot marker to reapply the filtering (filter button is present but not 100% functional as of now).</li>
+</ul>
+</li>
+</ul>
+<h2 id="stitch-generation">Stitch Generation</h2>
+<ul>
+<li>Open the process tab to create the stitched plots for your experiment. Populate the fields in the selection panel to select the correct year / location / experiment / population.</li>
+</ul>
+<h3 id="agrowstitch"><strong>AgRowStitch</strong></h3>
+<ul>
+<li>In the <strong>Orthomosaic Generation</strong> tab, select <code>Start</code> on the date you wish to generate stitches for.</li>
+<li>Under the <code>Orthomosaic Method</code> dropdown, select AgRowStitch. This is recommended for ground-based data.</li>
+<li>For now, you can skip the GCP picking process and directly select <code>Generate Orthophoto</code>.</li>
+<li>Generation will begin and progress can be tracked via the progress bar at the bottom of the page. </li>
+<li>After generation is completed, navigate to the <strong>Generated Orthomosaics</strong> tab to view and download the stitched images.</li>
+</ul>
+<h2 id="plot-boundary-preparation">Plot Boundary Preparation</h2>
+<h3 id="import-data"><strong>Import Data</strong></h3>
+<ul>
+<li>After stitch generation is finished, the field's plot and accession information is associated with the plot indexes from the plot marker.</li>
+<li>Navigate to the <strong>Plot Boundary Preparation</strong> tab at the top of the screen.</li>
+<li>First, input a field_design.csv file in the requested format:</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/process/importData.png" data-desc-position="bottom"><img alt="Import Data" src="../_attachments/process/importData.png"></a></p>
+<p><em>Example Field Design</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/file-upload/field_design.png" data-desc-position="bottom"><img alt="Field Design" src="../_attachments/file-upload/field_design.png"></a> </p>
+<ul>
+<li>After uploading, verify that the preview of your data looks correct. If your file has column headers, leave the <code>Data has headers</code> box checked. Click <code>Choose columns</code>.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/process/uploadedCsv.png" data-desc-position="bottom"><img alt="Preview Data" src="../_attachments/process/uploadedCsv.png"></a></p>
+<ul>
+<li>Drag and drop the columns into the appropriate headers used by the app. Navigate through the columns using the left / right arrows. Click <code>Import</code> once all required fields are filled. If columns have titles that exactly match those used by the app, the app's field will be filled automatically.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/process/columnSelection.png" data-desc-position="bottom"><img alt="Select Columns" src="../_attachments/process/columnSelection.png"></a></p>
+<h3 id="population-boundary"><strong>Population Boundary</strong></h3>
+<ul>
+<li>After importing data, select the date of the data processing will be done on from the dropdown. Select the version of the stitch you would like to use if multiple exist.</li>
+<li>Choose the <code>Draw</code> option on the right of the screen. Click along the outer perimeter of the portion of the orthomosaic you'd like to process. Use the <code>Edit</code>, <code>Translate</code>, and <code>Select</code> options to modify the boundary as needed. When finished, click <code>Save</code>.</li>
+<li>Click <code>Proceed</code> to continue to the Plot Boundary.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/process/pop_boundary_gnd.png" data-desc-position="bottom"><img alt="Population Boundary" src="../_attachments/process/pop_boundary_gnd.png"></a></p>
+<h3 id="plot-boundary"><strong>Plot Boundary</strong></h3>
+<ul>
+<li><strong>NOTE</strong>: ALL PLOTS with plot boundaries created must be included in Field Design file even if the plots aren’t being used in the field. Without their inclusion, mapping of accession information will be incorrect.</li>
+<li>Select the stitch once more from the dropdown menu. Click the icon at the bottom left to populate parameters for the plot boundaries.</li>
+<li>Adjust the parameters until you are satisfied with the plot boundaries for trait extraction. </li>
+<li>Use the options in the top right to modify the placement of individual plot boundaries, or all at once using <code>Select All</code>. The <code>Tooltips</code> option can be toggled to show plot / accession information on each plot to ensure the boundaries are properly placed.</li>
+<li><strong>NOTE</strong>: For Amiga data processing, these boundaries do not need to be placed to exactly align with each edge of the stitch. The key is to make sure each boundary is clearly associated with one of the visible stitches (not covering multiple plots). </li>
+<li>When finished, click <code>Save</code>.
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/process/plot_boundary_gnd.png" data-desc-position="bottom"><img alt="Plot Boundary" src="../_attachments/process/plot_boundary_gnd.png"></a></li>
+</ul>
+<h3 id="assign-plot-labels"><strong>Assign Plot Labels</strong></h3>
+<ul>
+<li>If an AgRowStitch option is selected, this step should automatically appear.</li>
+<li>After defining the plot boundaries, select the date you have used for plot boundary prep in the dropdown.</li>
+<li>Press <code>Associate Plots with Boundaries</code> to save the associations of marked plot indexes with the plot labels and accessions.</li>
+<li>This association will only need to be done once per experiment and associations will be kept for future dates. If a new upload includes additional plots versus the reference date, the plot boundaries can be modified to associate the new plots as needed. </li>
+</ul>
+<h2 id="processing">Processing</h2>
+<h3 id="training-and-labeling"><strong>Training and Labeling</strong></h3>
+<ul>
+<li>Currently, <a href="https://app.roboflow.com/" target="_blank">Roboflow</a> is recommended for labeling of images and model training.</li>
+<li>Plot images for model training can be downloaded from the <strong>Manage Files</strong> tab in the data table. <ul>
+<li>If plots have been marked / filtered for the date the download is requested for, only images associated with plots will be downloaded to avoid downloading images that are unlikely to contain useful training data.</li>
+</ul>
+</li>
+</ul>
+<h3 id="predict"><strong>Predict</strong></h3>
+<ul>
+<li>Run inference on the cloud or locally</li>
+<li>Cloud inference requires roboflow credits</li>
+<li>Local inference requires a basic plan or above</li>
+<li>Insert your API Key and Model ID</li>
+<li>Select your Date, Platform, Sensor and Orthomosaic to run inference on</li>
+<li>After inference is completed, results can be viewed per plot with a confidence slider available <ul>
+<li>Currently only object detection is supported </li>
+</ul>
+</li>
+</ul>
+<h2 id="trait-viewing">Trait Viewing</h2>
+<p>To navigate to the statistics page, click on the <code>Stats</code> Icon. Use the icon with three lines to open and close the data selection menu.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/stats/statistics_page.png" data-desc-position="bottom"><img alt="Statistics Page" src="../_attachments/stats/statistics_page.png"></a></p>
+<ul>
+<li>The stats page shows processed data in tabular and graphical formats.</li>
+<li>To see statistics from a given date, expand the dropdown menu of the proper platform and sensor type. </li>
+<li>
+<p>Click <strong>Load</strong> on the date's table or graph column to view the extracted trait data.</p>
+</li>
+<li>
+<p>For the tabular format, you will see a window showing the table of traits. If desired, <strong>Download CSV</strong> can be clicked for the table as a CSV file.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/stats/table_view.png" data-desc-position="bottom"><img alt="Tabular Statistics" src="../_attachments/stats/table_view.png"></a></p>
+<ul>
+<li>For the graphical format, you will see a window showing a bar graph representing the number of plots that fell within certain ranges for the currently selected trait.</li>
+<li>To view the graph of a different trait, change the selected trait at the top of the window.</li>
+<li>To view the distribution of a certain accession value (as populated in the uploaded field design file), use the dropdown menu to select a different accession. To view the distribution of all accessions, leave the accession as <strong><em>None</em></strong>.</li>
+<li>To save the current graph view as an image, click <strong>Save As Image</strong> in the bottom left corner.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/stats/stats_graph.png" data-desc-position="bottom"><img alt="Graphical Statistics" src="../_attachments/stats/stats_graph.png"></a></p>
+<p>To navigate to the map page, click on the <code>Map</code> Icon. Use the icon with three lines to open and close the data selection menu.</p>
+<ul>
+<li>Populate the data selection menu with the <code>Year</code>, <code>Experiment</code>, <code>Location</code>, <code>Population</code>, <code>Date</code>, <code>Platform</code>, and <code>Sensor</code> you wish to view.</li>
+<li>The map will automatically adjust to show the full orthomosaic generated for the parameters selected. </li>
+<li>Use the dropdown menu to select the <code>Trait Metric</code> to view. After selecting, use the next dropdown menu to select the <code>Genotype</code> to view.</li>
+<li>The plot boundaries formed in the population boundary step will show a range of colors based on the trait selected. Use the key at the bottom of the map to interpret the colors shown.</li>
+</ul>
+<h2 id="query">Query</h2>
+<p>To navigate to the query page, click on the <code>Query</code> Icon. Use the icon with three lines to open and close the data selection menu.</p>
+<ul>
+<li>After selecting <code>Year</code>, <code>Experiment</code>, <code>Location</code>, and <code>Population</code> in the data selection menu, populate the <code>Date</code>, <code>Platform</code>, and <code>Sensor</code> dropdowns to select the data to query.</li>
+<li>There are three options for image query available, with only one being used at a time:<ul>
+<li><strong>Plot Numbers</strong>: Select from the dropdown menu the plot numbers whose images are to be queried. </li>
+<li><strong>Accessions</strong>: Select the unique accession IDs of the images to be queried.</li>
+<li><strong>Row / Column Pairs</strong>: Input Row / Column pairs (R, C) to select the images to be queried.</li>
+</ul>
+</li>
+<li>Click <code>View Images</code> to see the selected images to the right of the dropdown menus. Click <code>Download</code> to download the selected images as a .zip file.</li>
+<li>Images shown on the page can be hovered over to see the unique accession ID and plot number of each.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_attachments/query/query_view.png" data-desc-position="bottom"><img alt="Query Page" src="../_attachments/query/query_view.png"></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
