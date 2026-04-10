@@ -43,6 +43,29 @@ For development, you can use the following commands from the `frontend/` directo
   npm run tauri:dev
   ```
 
+## Building the App
+Building the application requires environment-specific setups.
+
+### Quick Build Overview
+- **Linux/macOS:** Use the root `build.sh` script.
+- **Windows:** Use the `build-windows.ps1` PowerShell script.
+
+### Platform-Specific Requirements
+| Platform | Key Requirements | Build Command |
+|----------|------------------|---------------|
+| **Linux** | Ubuntu 22.04 (recommended) | `./build.sh` |
+| **macOS** | Xcode CLI Tools | `./build.sh` |
+| **Windows** | Visual Studio Build Tools 2022, Inno Setup 6, **Docker Desktop** | `.\build-windows.ps1` |
+
+> **Note on Windows:** **Docker Desktop** is required for certain data processing features in the application. Ensure it is running when performing these tasks.
+
+### Build Optimization
+You can skip full rebuilds if only the frontend has changed:
+- **Linux/macOS:** `./build.sh tauri`
+- **Windows:** `.\build-windows.ps1 tauri`
+
+*For comprehensive build instructions, troubleshooting, and platform-specific prerequisites, please consult the `BUILDING.md` file in the [GEMINI-App repository](https://github.com/GEMINI-Breeding/GEMINI-App).*
+
 ## Schema Summary
 The GEMINI project utilizes a flexible SQLite-based backend managed by SQLModel, alongside a structured filesystem layout.
 
