@@ -1,5 +1,23 @@
 site_name: GEMINI Documentation
 
+nav:
+  - Start Guide:
+      - Overview: start_guide/index.md
+      - User Guide: start_guide/user_guide.md
+      - Developer Guide: start_guide/developer_guide.md
+  - App Guide:
+      - Overview: app_guide/index.md
+      - Upload: app_guide/upload.md
+      - Aerial Pipeline: app_guide/aerial_pipeline.md
+      - Ground Pipeline: app_guide/ground_pipeline.md
+      - Analyze: app_guide/analyze.md
+      - Dashboard: app_guide/dashboard.md
+  - Hardware:
+      - Overview: hardware/index.md
+      - Amiga: hardware/Amiga/1- AmigaQSG.md
+      - Drone: hardware/Drone/3 - Drone SOP.md
+      - Weather Station: hardware/Weather Station/1- Weather Station Build.md
+
 theme: 
   name: material
   features:
@@ -7,6 +25,7 @@ theme:
     - navigation.top
     - toc.integrate
     - content.code.copy
+    - navigation.indexes
   font:
     text: Poppins
   palette:
