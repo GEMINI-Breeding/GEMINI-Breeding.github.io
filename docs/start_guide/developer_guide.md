@@ -43,24 +43,36 @@ GEMINI-App leverages a modern, high-performance toolchain to ensure developer pr
 ## Development Setup
 
 1.  **Clone with submodules:**
-    ```bash
+    ```
     git clone --recurse-submodules https://github.com/GEMINI-Breeding/GEMINI-App.git
     cd GEMINI-App
     ```
 
-2.  **Setup Backend:**
-    ```bash
+2. **Install UV:**
+
+    - *MacOS and Linux / WSL*:
+        ```
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        ```
+
+    - *Windows*:
+        ```
+        powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+        ```
+
+3.  **Setup Backend:** 
+    ```
     cd backend
     uv sync
     ```
 
-3.  **Install Rust (Required for Tauri):**
-    ```bash
+4.  **Install Rust (Required for Tauri):**
+    ```
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ```
 
-4.  **Setup Frontend:**
-    ```bash
+5.  **Setup Frontend:**
+    ```
     cd ../frontend
     npm install
     ```
@@ -69,11 +81,11 @@ GEMINI-App leverages a modern, high-performance toolchain to ensure developer pr
 For development, you can use the following commands from the `frontend/` directory:
 
 - **Full stack (Backend + Vite):**
-  ```bash
+  ```
   npm run dev:full
   ```
 - **Tauri native desktop window:**
-  ```bash
+  ```
   npm run tauri:dev
   ```
 
