@@ -44,7 +44,7 @@ GEMINI-App leverages a modern, high-performance toolchain to ensure developer pr
 
 1.  **Clone with submodules:**
     ```
-    git clone --recurse-submodules https://github.com/GEMINI-Breeding/GEMINI-App.git
+    git clone --recurse-submodules https://github.com/GEMINI-Breeding/GEMINI-App.git && 
     cd GEMINI-App
     ```
 
@@ -62,7 +62,7 @@ GEMINI-App leverages a modern, high-performance toolchain to ensure developer pr
 
 3.  **Setup Backend:** 
     ```
-    cd backend
+    cd backend &&
     uv sync
     ```
 
@@ -73,7 +73,7 @@ GEMINI-App leverages a modern, high-performance toolchain to ensure developer pr
 
 5.  **Setup Frontend:**
     ```
-    cd ../frontend
+    cd ../frontend &&
     npm install
     ```
 
