@@ -1,0 +1,2102 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/gemini_small_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>GEMINI-App — Data Schema Reference - GEMINI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gemini-app-data-schema-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="GEMINI Documentation" class="md-header__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEMINI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GEMINI-App — Data Schema Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GEMINI Documentation" class="md-nav__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    GEMINI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../start_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start_guide/user_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start_guide/developer_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../app_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    App Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    App Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_guide/upload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_guide/aerial_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerial Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_guide/ground_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_guide/analyze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyze
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app_guide/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/Amiga/1-%20AmigaQSG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiga
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/Drone/3%20-%20Drone%20SOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/Weather%20Station/1-%20Weather%20Station%20Build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather Station
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="gemini-app-data-schema-reference">GEMINI-App — Data Schema Reference</h1>
+<p>This document describes every persistent data store: the SQLite database tables and the filesystem layout (<code>Raw/</code>, <code>Intermediate/</code>, <code>Processed/</code>).</p>
+<h2 id="design-philosophy-architectural-patterns">Design Philosophy &amp; Architectural Patterns</h2>
+<p>GEMINI-App follows a "Local-First, High-Performance" philosophy designed for field researchers. Key patterns include:</p>
+<ul>
+<li><strong>Single-User Desktop Model:</strong> The application assumes a single superuser per local installation. Authentication is simplified to bypass complex JWT/OAuth flows, focusing instead on local SQLite security and filesystem permissions.</li>
+<li><strong>Extreme Denormalization for Analytics:</strong> The <code>PlotRecord</code> table is intentionally denormalized. It duplicates metadata from <code>PipelineRun</code>, <code>Pipeline</code>, and <code>Workspace</code> (e.g., experiment name, location, date). This allows the "Analyze" tab to perform lightning-fast cross-experiment queries and filtering using standard SQL without expensive joins across thousands of plot records.</li>
+<li><strong>Filesystem as the Primary Store:</strong> The SQLite database acts as a "Searchable Index" for the filesystem. Large binary data (TIFs, PNGs, point clouds) never enters the database. Instead, <code>RunPaths</code> handles deterministic path resolution, and the database stores relative paths to maintain portability across different <code>data_root</code> locations.</li>
+<li><strong>Immutability and Versioning:</strong> Processing steps (like stitching or trait extraction) do not overwrite previous results. They create new versioned directories (e.g., <code>AgRowStitch_v2/</code>). The database tracks the "latest" version but preserves the history of previous runs for provenance.</li>
+</ul>
+<h2 id="data-integrity-validation">Data Integrity &amp; Validation</h2>
+<ul>
+<li><strong>Soft vs. Hard Deletes:</strong> The application primarily uses <code>CASCADE</code> deletes for parent-child relationships (e.g., deleting a Workspace deletes its Pipelines). However, filesystem data is <strong>never</strong> automatically deleted by the database engine to prevent accidental data loss of large raw datasets.</li>
+<li><strong>JSON Schema Validation:</strong> Many columns (<code>config</code>, <code>steps_completed</code>, <code>outputs</code>) use SQLite's JSON1 extension. While SQLModel provides Python-side validation via Pydantic, the database stores these as strings. Developers should use the <code>SA_JSON</code> type to ensure correct serialization.</li>
+<li><strong>Unique Constraints:</strong> Critical unique constraints are enforced on <code>User.email</code> and the composite <code>(trait_record_id, plot_id)</code> in <code>PlotRecord</code> to prevent duplicate trait data for the same plot in a single extraction run.</li>
+</ul>
+<h2 id="common-query-patterns">Common Query Patterns</h2>
+<ul>
+<li><strong>The "Analyze" Join:</strong> To get a unified view of plots, the frontend typically queries <code>PlotRecord</code> filtered by <code>workspace_id</code>. Because <code>PlotRecord</code> is denormalized, no join with <code>PipelineRun</code> is needed for basic metadata (date, experiment, sensor), which significantly speeds up the Map and Table views.</li>
+<li><strong>Reference Matching:</strong> Matching hand-measured data to pipeline results happens via a "Identity Tuple" match: <code>(experiment, location, population, plot_id)</code>. This is performed in Python during the <code>GET /master-table</code> request rather than a complex SQL join, allowing for fuzzy matching or alternate plot naming conventions if needed in the future.</li>
+</ul>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#sqlite-database">SQLite Database</a></li>
+<li><a href="#user">User</a></li>
+<li><a href="#workspace">Workspace</a></li>
+<li><a href="#pipeline">Pipeline</a></li>
+<li><a href="#pipelinerun">PipelineRun</a></li>
+<li><a href="#traitrecord">TraitRecord</a></li>
+<li><a href="#plotrecord">PlotRecord</a></li>
+<li><a href="#fileupload">FileUpload</a></li>
+<li><a href="#appsetting">AppSetting</a></li>
+<li><a href="#referencedataset">ReferenceDataset</a></li>
+<li><a href="#referenceplot">ReferencePlot</a></li>
+<li><a href="#workspacereferencedataset">WorkspaceReferenceDataset</a></li>
+<li><a href="#filesystem-layout">Filesystem Layout</a></li>
+<li><a href="#raw">Raw</a></li>
+<li><a href="#intermediate">Intermediate</a></li>
+<li><a href="#processed">Processed</a></li>
+<li><a href="#uploaded-data-types">Uploaded Data Types</a></li>
+<li><a href="#how-to-add-a-new-database-model">How to Add a New Database Model</a></li>
+<li><a href="#how-to-add-a-new-file-path">How to Add a New File Path</a></li>
+</ol>
+<hr>
+<h2 id="sqlite-database">SQLite Database</h2>
+<p><strong>Location (defaults):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>~/.local/share/gemi/gemi.db</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>~/Library/Application Support/GEMI/gemi.db</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%APPDATA%\GEMI\gemi.db</code></td>
+</tr>
+</tbody>
+</table>
+<p>Override with <code>SQLITE_DB_PATH=/path/to/gemi.db</code> in <code>.env</code>.</p>
+<p>The schema is managed by <code>SQLModel.metadata.create_all()</code> at startup — no migration scripts. Alembic exists in <code>backend/app/alembic/</code> for history only.</p>
+<hr>
+<h3 id="user">User</h3>
+<p><strong>File:</strong> <code>backend/app/models/user.py</code></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>str (unique, indexed)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>hashed_password</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_active</code></td>
+<td>bool</td>
+<td>default <code>True</code></td>
+</tr>
+<tr>
+<td><code>is_superuser</code></td>
+<td>bool</td>
+<td>default <code>False</code></td>
+</tr>
+<tr>
+<td><code>full_name</code></td>
+<td>str | None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relationships:</strong> <code>items</code>, <code>file_uploads</code>, <code>workspaces</code></p>
+<blockquote>
+<p>There is no login UI — <code>get_current_user()</code> queries the first superuser directly. The app assumes a single local user per machine.</p>
+</blockquote>
+<hr>
+<h3 id="workspace">Workspace</h3>
+<p><strong>File:</strong> <code>backend/app/models/workspace.py</code></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>str | None (max 1000)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>owner_id</code></td>
+<td>UUID (FK → User.id)</td>
+<td>CASCADE delete</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>str</td>
+<td>ISO timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relationships:</strong> <code>owner</code> (User), <code>pipelines</code> (list[Pipeline])</p>
+<p>Workspace name is used as a folder name in <code>Intermediate/</code> and <code>Processed/</code> — keep it filesystem-safe (no slashes or special characters).</p>
+<hr>
+<h3 id="pipeline">Pipeline</h3>
+<p><strong>File:</strong> <code>backend/app/models/pipeline.py</code></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>str (max 50)</td>
+<td><code>"ground"</code> or <code>"aerial"</code></td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td>dict | None (JSON)</td>
+<td>Stitch direction, ODM options, etc.</td>
+</tr>
+<tr>
+<td><code>workspace_id</code></td>
+<td>UUID (FK → Workspace.id)</td>
+<td>CASCADE delete</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>str | None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relationships:</strong> <code>workspace</code> (Workspace), <code>runs</code> (list[PipelineRun])</p>
+<blockquote>
+<p>Two pipelines in the same workspace can share a name (e.g. one ground and one aerial). Always use <code>pipeline_id</code> (UUID) as the unique key — never <code>pipeline_name</code>.</p>
+</blockquote>
+<hr>
+<h3 id="pipelinerun">PipelineRun</h3>
+<p><strong>File:</strong> <code>backend/app/models/pipeline.py</code></p>
+<p>Central record for one data-collection event (one day, one field, one sensor pass).</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pipeline_id</code></td>
+<td>UUID (FK → Pipeline.id)</td>
+<td>CASCADE delete</td>
+</tr>
+<tr>
+<td><code>file_upload_id</code></td>
+<td>UUID | None (FK → FileUpload.id)</td>
+<td>SET NULL on delete</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>str (max 50)</td>
+<td>ISO date — <code>"2024-06-15"</code></td>
+</tr>
+<tr>
+<td><code>experiment</code></td>
+<td>str (max 255)</td>
+<td>e.g. <code>"Drought2024"</code></td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>str (max 255)</td>
+<td>e.g. <code>"Davis"</code></td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>str (max 255)</td>
+<td>e.g. <code>"WheatPanel"</code></td>
+</tr>
+<tr>
+<td><code>platform</code></td>
+<td>str (max 255)</td>
+<td><code>"Amiga"</code>, <code>"DJI"</code>, etc.</td>
+</tr>
+<tr>
+<td><code>sensor</code></td>
+<td>str (max 255)</td>
+<td><code>"RGB"</code>, <code>"Thermal"</code>, etc.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>str (max 50)</td>
+<td><code>"pending"</code> | <code>"running"</code> | <code>"completed"</code> | <code>"failed"</code></td>
+</tr>
+<tr>
+<td><code>current_step</code></td>
+<td>str | None (max 100)</td>
+<td>Active step name</td>
+</tr>
+<tr>
+<td><code>steps_completed</code></td>
+<td>dict[str, bool] | None (JSON)</td>
+<td><code>{"stitching": true, ...}</code></td>
+</tr>
+<tr>
+<td><code>outputs</code></td>
+<td>dict[str, Any] | None (JSON)</td>
+<td><strong>Relative</strong> paths to output files (relative to <code>data_root</code>)</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>str | None (max 2000)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td><code>completed_at</code></td>
+<td>str | None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relationships:</strong> <code>pipeline</code> (Pipeline)</p>
+<h4 id="ground-pipeline-steps">Ground pipeline steps</h4>
+<table>
+<thead>
+<tr>
+<th>Step key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plot_marking</code></td>
+<td>User selects image ranges per plot</td>
+</tr>
+<tr>
+<td><code>stitching</code></td>
+<td>AgRowStitch creates panoramas</td>
+</tr>
+<tr>
+<td><code>inference</code></td>
+<td>Roboflow detection (optional)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="aerial-pipeline-steps">Aerial pipeline steps</h4>
+<table>
+<thead>
+<tr>
+<th>Step key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gcp_selection</code></td>
+<td>User marks ground control points</td>
+</tr>
+<tr>
+<td><code>orthomosaic</code></td>
+<td>ODM generates ortho + DEM</td>
+</tr>
+<tr>
+<td><code>plot_boundaries</code></td>
+<td>User draws polygons on the map</td>
+</tr>
+<tr>
+<td><code>trait_extraction</code></td>
+<td>Compute VF, height, temperature per plot</td>
+</tr>
+<tr>
+<td><code>inference</code></td>
+<td>Roboflow on split plot images (optional)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="outputs-json-keys-common"><code>outputs</code> JSON keys (common)</h4>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Set by step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>msgs_synced</code></td>
+<td><code>Intermediate/.../msgs_synced.csv</code> (relative)</td>
+<td>data sync</td>
+</tr>
+<tr>
+<td><code>stitch_outputs</code></td>
+<td>list of <code>{version, path, ...}</code> entries</td>
+<td>stitching</td>
+</tr>
+<tr>
+<td><code>ortho_outputs</code></td>
+<td>list of <code>{version, rgb, dem, ...}</code> entries</td>
+<td>orthomosaic</td>
+</tr>
+<tr>
+<td><code>traits_geojson</code></td>
+<td><code>Processed/.../Traits-WGS84.geojson</code> (relative)</td>
+<td>trait extraction</td>
+</tr>
+<tr>
+<td><code>cropped_images_dir</code></td>
+<td><code>Processed/.../cropped_images_v{N}/</code> (relative)</td>
+<td>trait extraction</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>All paths in <code>outputs</code> are <strong>relative to <code>data_root</code></strong>. Reconstruct absolute paths with <code>paths.abs(run.outputs["key"])</code>.</p>
+</blockquote>
+<hr>
+<h3 id="traitrecord">TraitRecord</h3>
+<p><strong>File:</strong> <code>backend/app/models/pipeline.py</code></p>
+<p>One record per trait extraction run. Captures provenance (which orthomosaic version, which plot boundary version).</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>UUID (FK → PipelineRun.id, indexed)</td>
+<td>CASCADE delete</td>
+</tr>
+<tr>
+<td><code>geojson_path</code></td>
+<td>str (max 1000)</td>
+<td>Relative path to <code>Traits-WGS84.geojson</code></td>
+</tr>
+<tr>
+<td><code>ortho_version</code></td>
+<td>int | None</td>
+<td>Which orthomosaic version was used (aerial)</td>
+</tr>
+<tr>
+<td><code>ortho_name</code></td>
+<td>str | None (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>boundary_version</code></td>
+<td>int | None</td>
+<td>Which plot boundary version was used</td>
+</tr>
+<tr>
+<td><code>boundary_name</code></td>
+<td>str | None (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>int</td>
+<td>Sequential within the run (1-based)</td>
+</tr>
+<tr>
+<td><code>plot_count</code></td>
+<td>int</td>
+<td>Number of plots extracted</td>
+</tr>
+<tr>
+<td><code>trait_columns</code></td>
+<td>list[str] (JSON)</td>
+<td>Column names present in the GeoJSON</td>
+</tr>
+<tr>
+<td><code>vf_avg</code></td>
+<td>float | None</td>
+<td>Average vegetation fraction</td>
+</tr>
+<tr>
+<td><code>height_avg</code></td>
+<td>float | None</td>
+<td>Average canopy height</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>str</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="plotrecord">PlotRecord</h3>
+<p><strong>File:</strong> <code>backend/app/models/plot_record.py</code></p>
+<p>One row per individual plot, per trait extraction. Denormalized for fast querying in the Analyze tab.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>trait_record_id</code></td>
+<td>UUID (indexed)</td>
+<td>FK to TraitRecord</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>UUID (indexed)</td>
+<td>FK to PipelineRun</td>
+</tr>
+<tr>
+<td><code>pipeline_id</code></td>
+<td>str (max 100)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pipeline_type</code></td>
+<td>str (max 20)</td>
+<td><code>"aerial"</code> or <code>"ground"</code></td>
+</tr>
+<tr>
+<td><code>pipeline_name</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>workspace_id</code></td>
+<td>str (max 100)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>workspace_name</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>str (max 50)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>experiment</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>platform</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sensor</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>trait_record_version</code></td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ortho_version</code></td>
+<td>int | None</td>
+<td>Aerial only</td>
+</tr>
+<tr>
+<td><code>stitch_version</code></td>
+<td>int | None</td>
+<td>Ground only</td>
+</tr>
+<tr>
+<td><code>boundary_version</code></td>
+<td>int | None</td>
+<td></td>
+</tr>
+<tr>
+<td><code>plot_id</code></td>
+<td>str (max 255, indexed)</td>
+<td>Unique plot identifier (e.g. <code>"Plot_001"</code>)</td>
+</tr>
+<tr>
+<td><code>accession</code></td>
+<td>str | None (max 255, indexed)</td>
+<td>Genotype / accession name</td>
+</tr>
+<tr>
+<td><code>col</code></td>
+<td>str | None (max 100)</td>
+<td>Column/bed</td>
+</tr>
+<tr>
+<td><code>row</code></td>
+<td>str | None (max 100)</td>
+<td>Row/tier</td>
+</tr>
+<tr>
+<td><code>geometry_wkt</code></td>
+<td>str | None</td>
+<td>WGS84 polygon in WKT format</td>
+</tr>
+<tr>
+<td><code>traits</code></td>
+<td>dict[str, Any] (JSON)</td>
+<td>Numeric trait values (<code>{"vf": 0.65, "height": 0.42, ...}</code>)</td>
+</tr>
+<tr>
+<td><code>extra_properties</code></td>
+<td>dict[str, Any] (JSON)</td>
+<td>Non-numeric GeoJSON properties</td>
+</tr>
+<tr>
+<td><code>image_rel_path</code></td>
+<td>str | None (max 1000)</td>
+<td>Relative path to cropped plot image</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>str | None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unique constraint:</strong> <code>(trait_record_id, plot_id)</code></p>
+<hr>
+<h3 id="fileupload">FileUpload</h3>
+<p><strong>File:</strong> <code>backend/app/models/file_upload.py</code></p>
+<p>Tracks every batch of files uploaded through the Files tab.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>owner_id</code></td>
+<td>UUID (FK → User.id)</td>
+<td>CASCADE delete</td>
+</tr>
+<tr>
+<td><code>data_type</code></td>
+<td>str (max 100)</td>
+<td>See <a href="#uploaded-data-types">Uploaded Data Types</a></td>
+</tr>
+<tr>
+<td><code>experiment</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>str (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>str (max 50)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>platform</code></td>
+<td>str | None (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sensor</code></td>
+<td>str | None (max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>storage_path</code></td>
+<td>str (max 1000)</td>
+<td>Relative path to uploaded files</td>
+</tr>
+<tr>
+<td><code>original_filename</code></td>
+<td>str | None (max 500)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>file_count</code></td>
+<td>int</td>
+<td>Number of files in the batch</td>
+</tr>
+<tr>
+<td><code>file_size_bytes</code></td>
+<td>int | None</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>str (max 50)</td>
+<td><code>"pending"</code> | <code>"processing"</code> | <code>"completed"</code> | <code>"failed"</code></td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>str | None (max 1000)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td>`updated_at"</td>
+<td>str | None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relationships:</strong> <code>owner</code> (User)</p>
+<hr>
+<h3 id="appsetting">AppSetting</h3>
+<p><strong>File:</strong> <code>backend/app/models/app_settings.py</code></p>
+<p>Key/value store for user-configured application settings.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td>str (PK, max 255)</td>
+<td></td>
+</tr>
+<tr>
+<td>`value"</td>
+<td>str (max 4096)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data_root</code></td>
+<td>Root directory for all data storage</td>
+<td><code>~/GEMI-Data</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Do not</strong> call <code>get_setting("data_root")</code> directly in route handlers. Always use <code>RunPaths.from_db()</code> — it reads <code>data_root</code> internally.</p>
+</blockquote>
+<hr>
+<hr>
+<h3 id="referencedataset">ReferenceDataset</h3>
+<p><strong>File:</strong> <code>backend/app/models/reference_data.py</code></p>
+<p>Represents one upload of hand-measured field data (e.g. "LAI Hand Measurements Apr 2024").</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>str</td>
+<td>Required. User-assigned during upload.</td>
+</tr>
+<tr>
+<td><code>experiment</code></td>
+<td>str</td>
+<td>From upload metadata</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>str</td>
+<td>From upload metadata</td>
+</tr>
+<tr>
+<td><code>population</code></td>
+<td>str</td>
+<td>From upload metadata</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>str | None</td>
+<td>Metadata only — not used for plot matching</td>
+</tr>
+<tr>
+<td><code>column_mapping</code></td>
+<td>JSON</td>
+<td>Maps file column → canonical trait name</td>
+</tr>
+<tr>
+<td><code>plot_count</code></td>
+<td>int</td>
+<td>Row count after import</td>
+</tr>
+<tr>
+<td><code>trait_columns</code></td>
+<td>JSON list[str]</td>
+<td>Trait column names present in this dataset</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>datetime</td>
+<td>Auto</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relationships:</strong> <code>plots</code> (list[ReferencePlot]), workspace links via <code>WorkspaceReferenceDataset</code></p>
+<hr>
+<h3 id="referenceplot">ReferencePlot</h3>
+<p><strong>File:</strong> <code>backend/app/models/reference_data.py</code></p>
+<p>One row of a <code>ReferenceDataset</code> — one plot's hand-measured values.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>UUID (PK)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dataset_id</code></td>
+<td>UUID (FK → ReferenceDataset, CASCADE delete)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>plot_id</code></td>
+<td>str | None</td>
+<td>From column mapping</td>
+</tr>
+<tr>
+<td><code>col</code></td>
+<td>str | None</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>row</code></td>
+<td>str | None</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>accession</code></td>
+<td>str | None</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>traits</code></td>
+<td>JSON dict[str, float]</td>
+<td><code>{ trait_name: value }</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Matching:</strong> Reference plots are matched to <code>PlotRecord</code>s at query time by <code>(experiment, location, population, plot_id)</code> — never stored as a FK. <code>date</code> is <strong>not</strong> part of reference matching.</p>
+<p><strong>Index on:</strong> <code>(dataset_id, plot_id)</code></p>
+<hr>
+<h3 id="workspacereferencedataset">WorkspaceReferenceDataset</h3>
+<p><strong>File:</strong> <code>backend/app/models/reference_data.py</code></p>
+<p>Join table associating uploaded reference datasets with workspaces.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>workspace_id</code></td>
+<td>UUID (FK → Workspace)</td>
+<td>Composite PK</td>
+</tr>
+<tr>
+<td><code>dataset_id</code></td>
+<td>UUID (FK → ReferenceDataset)</td>
+<td>Composite PK</td>
+</tr>
+</tbody>
+</table>
+<p>A dataset can be associated with multiple workspaces. Deleting the dataset removes all workspace links.</p>
+<hr>
+<h2 id="filesystem-layout">Filesystem Layout</h2>
+<p>All paths are derived from the <code>RunPaths</code> class in <code>backend/app/core/paths.py</code>. <strong>Never construct these paths manually</strong> in route handlers or processing functions.</p>
+<pre><code>{data_root}/
+├── Raw/
+│   └── {year}/{experiment}/{location}/{population}/{date}/{platform}/{sensor}/
+│       ├── Images/          ← uploaded image files (JPEGs, PNGs)
+│       └── Metadata/        ← platform logs (.bin/.log/.tlog), synced metadata CSVs
+│
+│   └── {year}/{experiment}/{location}/{population}/
+│       ├── FieldDesign/     ← field design CSVs (plot layout)
+│       └── gcp_locations.csv ← GCP lat/lon table (shared across dates)
+│
+├── Intermediate/
+│   └── {workspace}/
+│       ├── {year}/{location}/{population}/          ← shared across all experiments
+│       │   ├── Plot-Boundary-WGS84.geojson
+│       │   ├── Plot-Boundary-WGS84_v{N}.geojson
+│       │   ├── Pop-Boundary-WGS84.geojson
+│       │   └── field_design.csv
+│       │
+│       └── {year}/{experiment}/{location}/{population}/   ← experiment-scoped
+│           ├── plot_borders.csv
+│           ├── plot_borders_v{N}.csv
+│           ├── stitch_mask.json
+│           ├── gcp_locations.csv
+│           └── {date}/{platform}/{sensor}/          ← run-level
+│               ├── msgs_synced.csv
+│               ├── drone_msgs.csv
+│               ├── gcp_list.txt
+│               ├── geo.txt
+│               ├── temp/                            ← ODM working directory
+│               └── plot_images/                     ← aerial: split plot PNGs
+│
+└── Processed/
+    └── {workspace}/
+        └── {year}/{experiment}/{location}/{population}/{date}/{platform}/{sensor}/
+            ├── AgRowStitch_v{N}/        ← ground pipeline outputs
+            │   ├── full_res_mosaic_temp_plot_{id}.png
+│               ├── georeferenced_plot_{id}_utm.tif
+│               ├── combined_mosaic_utm.tif
+│               ├── roboflow_predictions_{task}.csv
+│               └── Traits-WGS84.geojson
+│
+│           ├── {date}-RGB.tif           ← aerial orthomosaic (latest)
+│           ├── {date}-RGB-v{N}.tif      ← aerial orthomosaic (versioned)
+│           ├── {date}-DEM.tif           ← aerial DEM (latest)
+│           ├── {date}-DEM-v{N}.tif      ← aerial DEM (versioned)
+│           ├── {date}-RGB-Pyramid.tif   ← tiled pyramid for map viewer
+│           ├── cropped_images/          ← aerial: per-plot crop images (latest)
+│           ├── cropped_images_v{N}/     ← aerial: per-plot crop images (versioned)
+│           ├── roboflow_predictions_{task}.csv
+│           └── Traits-WGS84.geojson
+</code></pre>
+<h3 id="runpaths-property-reference">RunPaths property reference</h3>
+<table>
+<thead>
+<tr>
+<th>Property / Method</th>
+<th>Resolves to</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paths.raw</code></td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/{plat}/{sen}/</code></td>
+<td>Run</td>
+</tr>
+<tr>
+<td><code>paths.raw_metadata</code></td>
+<td><code>Raw/…/{sen}/Metadata/</code></td>
+<td>Run</td>
+</tr>
+<tr>
+<td><code>paths.field_design_dir</code></td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/FieldDesign/</code></td>
+<td>Population</td>
+</tr>
+<tr>
+<td><code>paths.gcp_locations_raw</code></td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/gcp_locations.csv</code></td>
+<td>Population</td>
+</tr>
+<tr>
+<td><code>paths.intermediate_shared_pop</code></td>
+<td><code>Intermediate/{ws}/{year}/{loc}/{pop}/</code></td>
+<td>Shared (cross-exp)</td>
+</tr>
+<tr>
+<td><code>paths.plot_boundary_geojson</code></td>
+<td><code>…/Plot-Boundary-WGS84.geojson</code></td>
+<td>Shared</td>
+</tr>
+<tr>
+<td><code>paths.pop_boundary_geojson</code></td>
+<td><code>…/Pop-Boundary-WGS84.geojson</code></td>
+<td>Shared</td>
+</tr>
+<tr>
+<td><code>paths.field_design_intermediate</code></td>
+<td><code>…/field_design.csv</code></td>
+<td>Shared</td>
+</tr>
+<tr>
+<td><code>paths.intermediate_year</code></td>
+<td><code>Intermediate/{ws}/{year}/{exp}/{loc}/{pop}/</code></td>
+<td>Year + experiment</td>
+</tr>
+<tr>
+<td><code>paths.plot_borders</code></td>
+<td><code>…/plot_borders.csv</code></td>
+<td>Ground, year</td>
+</tr>
+<tr>
+<td><code>paths.stitch_mask</code></td>
+<td><code>…/stitch_mask.json</code></td>
+<td>Ground, year</td>
+</tr>
+<tr>
+<td><code>paths.gcp_locations_intermediate</code></td>
+<td><code>…/gcp_locations.csv</code></td>
+<td>Year</td>
+</tr>
+<tr>
+<td><code>paths.gcp_locations()</code></td>
+<td>Raw path if exists, else Intermediate fallback</td>
+<td>Aerial</td>
+</tr>
+<tr>
+<td><code>paths.intermediate_run</code></td>
+<td><code>…/{date}/{plat}/{sen}/</code></td>
+<td>Run</td>
+</tr>
+<tr>
+<td><code>paths.msgs_synced</code></td>
+<td>`…/msgs_synced.csv"</td>
+<td>Run</td>
+</tr>
+<tr>
+<td><code>paths.drone_msgs</code></td>
+<td><code>…/drone_msgs.csv</code></td>
+<td>Run (aerial)</td>
+</tr>
+<tr>
+<td><code>paths.gcp_list</code></td>
+<td><code>…/gcp_list.txt</code></td>
+<td>Run (aerial)</td>
+</tr>
+<tr>
+<td><code>paths.geo_txt</code></td>
+<td><code>…/geo.txt</code></td>
+<td>Run (aerial)</td>
+</tr>
+<tr>
+<td><code>paths.odm_working_dir</code></td>
+<td><code>…/temp/</code></td>
+<td>Run (aerial)</td>
+</tr>
+<tr>
+<td><code>paths.plot_images_dir</code></td>
+<td><code>…/plot_images/</code></td>
+<td>Run (aerial)</td>
+</tr>
+<tr>
+<td><code>paths.processed_run</code></td>
+<td><code>Processed/{ws}/{year}/{exp}/{loc}/{pop}/{date}/{plat}/{sen}/</code></td>
+<td>Run</td>
+</tr>
+<tr>
+<td><code>paths.agrowstitch_dir(n)</code></td>
+<td><code>…/AgRowStitch_v{n}/</code></td>
+<td>Ground, versioned</td>
+</tr>
+<tr>
+<td><code>paths.aerial_rgb</code></td>
+<td><code>…/{date}-RGB.tif</code></td>
+<td>Aerial (latest)</td>
+</tr>
+<tr>
+<td><code>paths.aerial_rgb_versioned(n)</code></td>
+<td><code>…/{date}-RGB-v{n}.tif</code></td>
+<td>Aerial, versioned</td>
+</tr>
+<tr>
+<td><code>paths.aerial_dem</code></td>
+<td><code>…/{date}-DEM.tif</code></td>
+<td>Aerial (latest)</td>
+</tr>
+<tr>
+<td><code>paths.aerial_dem_versioned(n)</code></td>
+<td><code>…/{date}-DEM-v{n}.tif</code></td>
+<td>Aerial, versioned</td>
+</tr>
+<tr>
+<td><code>paths.aerial_rgb_pyramid</code></td>
+<td><code>…/{date}-RGB-Pyramid.tif</code></td>
+<td>Aerial (latest)</td>
+</tr>
+<tr>
+<td><code>paths.cropped_images_dir</code></td>
+<td><code>…/cropped_images/</code></td>
+<td>Aerial (latest)</td>
+</tr>
+<tr>
+<td><code>paths.cropped_images_versioned(n)</code></td>
+<td><code>…/cropped_images_v{n}/</code></td>
+<td>Aerial, versioned</td>
+</tr>
+<tr>
+<td><code>paths.traits_geojson</code></td>
+<td>`…/Traits-WGS84.geojson"</td>
+<td>Run</td>
+</tr>
+<tr>
+<td><code>paths.roboflow_predictions(task)</code></td>
+<td><code>…/roboflow_predictions_{task}.csv</code></td>
+<td>Run</td>
+</tr>
+</tbody>
+</table>
+<h3 id="path-storage-rules">Path storage rules</h3>
+<ul>
+<li><strong>Store:</strong> <code>paths.rel(absolute_path)</code> — saves a POSIX string relative to <code>data_root</code></li>
+<li><strong>Read back:</strong> <code>paths.abs(relative_string)</code> — reconstructs the absolute path</li>
+</ul>
+<p>Always store relative paths in <code>PipelineRun.outputs</code> so paths remain valid if the user changes their <code>data_root</code>.</p>
+<hr>
+<h2 id="uploaded-data-types">Uploaded Data Types</h2>
+<p>Defined in <code>frontend/src/config/dataTypes.ts</code>. Each type maps to an upload destination under <code>Raw/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Fields Required</th>
+<th>Upload Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Image Data</code></td>
+<td>experiment, location, population, date, platform, sensor</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/{plat}/{sen}/Images/</code></td>
+</tr>
+<tr>
+<td><code>Ardupilot Logs</code></td>
+<td>experiment, location, population, date, platform, sensor</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/{plat}/{sen}/Metadata/</code></td>
+</tr>
+<tr>
+<td><code>Synced Metadata</code></td>
+<td>experiment, location, population, date, platform, sensor</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/{plat}/{sen}/Metadata/</code></td>
+</tr>
+<tr>
+<td><code>Farm-ng Binary File</code></td>
+<td>experiment, location, population, date</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/Amiga/RGB/Images/</code> (fixed platform/sensor)</td>
+</tr>
+<tr>
+<td><code>Orthomosaic</code></td>
+<td>experiment, location, population, date, platform, sensor</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/{plat}/{sen}/Orthomosaic/</code></td>
+</tr>
+<tr>
+<td><code>Weather Data</code></td>
+<td>experiment, location, population, date</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/{date}/WeatherData/</code></td>
+</tr>
+<tr>
+<td><code>Field Design</code></td>
+<td>experiment, location, population, date</td>
+<td><code>Raw/{year}/{exp}/{loc}/{pop}/FieldDesign/</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="how-to-add-a-new-database-model">How to Add a New Database Model</h2>
+<ol>
+<li><strong>Create the model file</strong> in <code>backend/app/models/</code>:</li>
+</ol>
+<pre><code class="language-python"># backend/app/models/my_thing.py
+from sqlmodel import Field, SQLModel
+import uuid
+
+class MyThing(SQLModel, table=True):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    name: str
+    workspace_id: uuid.UUID = Field(foreign_key="workspace.id")
+</code></pre>
+<ol>
+<li><strong>Register it</strong> in <code>backend/app/models/__init__.py</code> so <code>create_all</code> sees it:</li>
+</ol>
+<pre><code class="language-python">from .my_thing import MyThing  # noqa: F401
+</code></pre>
+<ol>
+<li>
+<p><strong>Add CRUD helpers</strong> in <code>backend/app/crud/my_thing.py</code>.</p>
+</li>
+<li>
+<p><strong>Restart the backend</strong> — the table is created automatically.</p>
+</li>
+<li>
+<p><strong>Add API routes</strong> in <code>backend/app/api/routes/</code>, register in <code>backend/app/api/main.py</code>, add to <code>hiddenimports</code> in <code>gemi-backend.spec</code>.</p>
+</li>
+<li>
+<p><strong>Regenerate the frontend client:</strong>
+   <code>bash
+   ./scripts/generate-client.sh</code></p>
+</li>
+<li>
+<p><strong>Update this document</strong> — add the table to <a href="#sqlite-database">SQLite Database</a> above.</p>
+</li>
+</ol>
+<hr>
+<h2 id="how-to-add-a-new-file-path">How to Add a New File Path</h2>
+<ol>
+<li><strong>Add a property or method</strong> to <code>RunPaths</code> in <code>backend/app/core/paths.py</code>:</li>
+</ol>
+<pre><code class="language-python">@property
+def my_new_file(self) -&gt; Path:
+    """Description — what this file contains and which step produces it."""
+    return self.processed_run / "my_new_file.csv"
+</code></pre>
+<p>Use a method (not a property) when the path is versioned:</p>
+<pre><code class="language-python">def my_versioned_dir(self, version: int) -&gt; Path:
+    return self.processed_run / f"my_dir_v{version}"
+</code></pre>
+<ol>
+<li><strong>Use the path in your processing function:</strong></li>
+</ol>
+<pre><code class="language-python">paths.my_new_file.write_text(content)
+return {"my_new_file": paths.rel(paths.my_new_file)}
+</code></pre>
+<ol>
+<li><strong>Update the directory layout diagram</strong> in this document (the ASCII tree above) and the property reference table.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "toc.integrate", "content.code.copy", "navigation.indexes"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

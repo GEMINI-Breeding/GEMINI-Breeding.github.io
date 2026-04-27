@@ -1,0 +1,1212 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../user_guide/">
+      
+      
+        <link rel="next" href="../../app_guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/gemini_small_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Developer Guide - GEMINI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developer-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GEMINI Documentation" class="md-header__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEMINI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developer Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GEMINI Documentation" class="md-nav__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    GEMINI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tech Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-tools-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Tools &amp; Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Tools &amp; Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Tooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting the App
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building the App
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building the App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-build-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Build Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-specific-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform-Specific Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filesystem-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filesystem Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../app_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    App Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    App Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app_guide/upload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app_guide/aerial_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerial Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app_guide/ground_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app_guide/analyze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyze
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app_guide/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/Amiga/1-%20AmigaQSG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiga
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/Drone/3%20-%20Drone%20SOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/Weather%20Station/1-%20Weather%20Station%20Build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather Station
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="developer-guide">Developer Guide</h1>
+<p>Welcome to the GEMINI Breeding developer documentation.</p>
+<h2 id="tech-stack">Tech Stack</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desktop shell</td>
+<td><a href="https://tauri.app">Tauri v2</a> (Rust)</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>React 18, <a href="https://tanstack.com/router">TanStack Router</a>, <a href="https://tanstack.com/query">TanStack Query</a>, <a href="https://ui.shadcn.com">shadcn/ui</a>, Tailwind CSS v4</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td><a href="https://fastapi.tiangolo.com">FastAPI</a>, <a href="https://sqlmodel.tiangolo.com">SQLModel</a>, SQLite</td>
+</tr>
+<tr>
+<td>Python runtime</td>
+<td>Python 3.12, managed by <a href="https://docs.astral.sh/uv/">uv</a></td>
+</tr>
+<tr>
+<td>API client</td>
+<td>Auto-generated from OpenAPI schema via <a href="https://heyapi.dev">@hey-api/openapi-ts</a></td>
+</tr>
+<tr>
+<td>Linting</td>
+<td><a href="https://biomejs.dev">Biome</a> (frontend), <a href="https://docs.astral.sh/ruff/">Ruff</a> (backend)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="development-tools-ecosystem">Development Tools &amp; Ecosystem</h2>
+<p>GEMINI-App leverages a modern, high-performance toolchain to ensure developer productivity and a polished user experience.</p>
+<h3 id="frontend-tooling">Frontend Tooling</h3>
+<ul>
+<li><strong>Vite:</strong> The project uses Vite for lightning-fast Hot Module Replacement (HMR) and optimized production builds. In development mode, Vite's proxy handles requests to the FastAPI backend, while in production, it's bundled into the Tauri desktop shell.</li>
+<li><strong>Tauri v2:</strong> Provides a lightweight Rust-based bridge between the webview and the operating system. It manages the lifecycle of the Python sidecar (the backend), handles native file dialogs, and manages the desktop window.</li>
+<li><strong>shadcn/ui &amp; Radix UI:</strong> Instead of a traditional component library, the app uses <code>shadcn/ui</code> which provides high-quality, accessible Radix UI primitives that are "owned" by the project (copied into <code>src/components/ui/</code>). This allows for full customization of every component.</li>
+<li><strong>Tailwind CSS v4:</strong> A CSS-first utility framework used for styling. Version 4 provides a high-performance engine and a streamlined development workflow.</li>
+<li><strong>TanStack Ecosystem:</strong><ul>
+<li><strong>TanStack Router:</strong> Provides a type-safe, file-based routing system. This ensures that every URL and parameter is verified at compile-time, reducing runtime errors.</li>
+<li><strong>TanStack Query:</strong> Manages all server state, caching, and background synchronization between the frontend and the FastAPI backend.</li>
+<li><strong>TanStack Table:</strong> Powering the "Analyze" tab's grid view, this headless library allows for complex filtering, sorting, and pagination of large datasets without sacrificing performance.</li>
+</ul>
+</li>
+<li><strong>Biome:</strong> A fast, all-in-one tool for formatting, linting, and import sorting in the frontend. It replaces ESLint and Prettier for a simpler, faster experience.</li>
+</ul>
+<h3 id="backend-tooling">Backend Tooling</h3>
+<ul>
+<li><strong>uv:</strong> The project uses <code>uv</code>, a high-performance Python package manager written in Rust. It replaces <code>pip</code>, <code>pip-tools</code>, and <code>venv</code> with a single tool that is significantly faster and provides reproducible builds via <code>uv.lock</code>.</li>
+<li><strong>Ruff:</strong> A Rust-based Python linter and formatter. It ensures consistent code style across the backend and provides instant feedback during development.</li>
+<li><strong>SQLModel:</strong> Combines <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> and <a href="https://docs.pydantic.dev/">Pydantic</a> into a single library. This allows us to define database models that are simultaneously Pydantic schemas, ensuring type safety from the database layer all the way to the API response.</li>
+<li><strong>Hey API (openapi-ts):</strong> Our TypeScript client is 100% auto-generated from the FastAPI OpenAPI schema. This means any backend change is immediately reflected in the frontend's type system after running the generator.</li>
+</ul>
+<hr>
+<h2 id="development-setup">Development Setup</h2>
+<ol>
+<li>
+<p><strong>Clone with submodules:</strong>
+    <code>git clone --recurse-submodules https://github.com/GEMINI-Breeding/GEMINI-App.git &amp;&amp; 
+    cd GEMINI-App</code></p>
+</li>
+<li>
+<p><strong>Install UV:</strong></p>
+<ul>
+<li>
+<p><em>MacOS and Linux / WSL</em>:
+    <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></p>
+</li>
+<li>
+<p><em>Windows</em>:
+    <code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Setup Backend:</strong> 
+    <code>cd backend &amp;&amp;
+    uv sync</code></p>
+</li>
+<li>
+<p><strong>Install Rust (Required for Tauri):</strong>
+    <code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></p>
+</li>
+<li>
+<p><strong>Setup Frontend:</strong>
+    <code>cd ../frontend &amp;&amp;
+    npm install</code></p>
+</li>
+</ol>
+<h2 id="starting-the-app">Starting the App</h2>
+<p>For development, you can use the following commands from the <code>frontend/</code> directory:</p>
+<ul>
+<li><strong>Full stack (Backend + Vite):</strong>
+  <code>npm run dev:full</code></li>
+<li><strong>Tauri native desktop window:</strong>
+  <code>npm run tauri:dev</code></li>
+</ul>
+<h2 id="building-the-app">Building the App</h2>
+<p>Building the application requires environment-specific setups.</p>
+<h3 id="quick-build-overview">Quick Build Overview</h3>
+<ul>
+<li><strong>Linux/macOS:</strong> Use the root <code>build.sh</code> script.</li>
+<li><strong>Windows:</strong> Use the <code>build-windows.ps1</code> PowerShell script.</li>
+</ul>
+<h3 id="platform-specific-requirements">Platform-Specific Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Key Requirements</th>
+<th>Build Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linux</strong></td>
+<td>Ubuntu 22.04 (recommended)</td>
+<td><code>./build.sh</code></td>
+</tr>
+<tr>
+<td><strong>macOS</strong></td>
+<td>Xcode CLI Tools</td>
+<td><code>./build.sh</code></td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>Visual Studio Build Tools 2022, Inno Setup 6, <strong>Docker Desktop</strong></td>
+<td><code>.\build-windows.ps1</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note on Windows:</strong> <strong>Docker Desktop</strong> is required for certain data processing features in the application. Ensure it is running when performing these tasks.</p>
+</blockquote>
+<h3 id="build-optimization">Build Optimization</h3>
+<p>You can skip full rebuilds if only the frontend has changed:
+- <strong>Linux/macOS:</strong> <code>./build.sh tauri</code>
+- <strong>Windows:</strong> <code>.\build-windows.ps1 tauri</code></p>
+<p><em>For comprehensive build instructions, troubleshooting, and platform-specific prerequisites, please consult the <code>BUILDING.md</code> file in the <a href="https://github.com/GEMINI-Breeding/GEMINI-App">GEMINI-App repository</a>.</em></p>
+<h2 id="schema-summary">Schema Summary</h2>
+<p>The GEMINI project utilizes a flexible SQLite-based backend managed by SQLModel, alongside a structured filesystem layout.</p>
+<h3 id="database">Database</h3>
+<ul>
+<li><strong>Core Tables:</strong> <code>User</code>, <code>Workspace</code>, <code>Pipeline</code>, <code>PipelineRun</code>, <code>TraitRecord</code>, <code>PlotRecord</code>.</li>
+<li><strong>Schema Management:</strong> The schema is automatically created via <code>SQLModel.metadata.create_all()</code> at startup; no manual migrations are required.</li>
+<li><strong>Data Access:</strong> All persistence is handled via CRUD helpers in <code>backend/app/crud/</code>.</li>
+</ul>
+<h3 id="filesystem-structure">Filesystem Structure</h3>
+<p>The project follows a deterministic path convention defined in <code>RunPaths</code>.
+- <strong><code>Raw/</code></strong>: Stores raw uploaded data (images, logs).
+- <strong><code>Intermediate/</code></strong>: Stores derived data (plot boundaries, GCPs, sync files).
+- <strong><code>Processed/</code></strong>: Stores final outputs (orthomosaics, trait GeoJSONs, cropped plot images).</p>
+<p><em>All file paths should be accessed via the <code>RunPaths</code> utility to ensure environment portability. Relative paths are stored in the database, with absolute paths reconstructed at runtime.</em></p>
+<p><em>For a comprehensive reference, please refer to the <code>SCHEMA.md</code> file in the <a href="https://github.com/GEMINI-Breeding/GEMINI-App">GEMINI-App repository</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "toc.integrate", "content.code.copy", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
