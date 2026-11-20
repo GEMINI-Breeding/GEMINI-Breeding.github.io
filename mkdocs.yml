@@ -8,10 +8,14 @@ nav:
   - App Guide:
       - Overview: app_guide/index.md
       - Upload: app_guide/upload.md
+      - Workspaces & Runs: app_guide/workspaces.md
       - Aerial Pipeline: app_guide/aerial_pipeline.md
       - Ground Pipeline: app_guide/ground_pipeline.md
+      - Inference & Training: app_guide/inference.md
       - Analyze: app_guide/analyze.md
-      - Dashboard: app_guide/dashboard.md
+      - Genotyping: app_guide/genotyping.md
+      - "Home: Dashboard & Agent": app_guide/dashboard.md
+      - Settings & Console: app_guide/settings.md
   - Hardware:
       - Overview: hardware/index.md
       - Amiga: hardware/Amiga/1- AmigaQSG.md

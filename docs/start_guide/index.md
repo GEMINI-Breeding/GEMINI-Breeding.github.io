@@ -8,7 +8,7 @@ Welcome to the GEMINI Breeding project. Select a module below to get started.
 
     ---
 
-    Download the latest executable from our [GitHub Releases](https://github.com/GEMINI-Breeding/GEMINI-App).
+    Download the latest installer from our [GitHub Releases](https://github.com/GEMINI-Breeding/GEMINI-App/releases).
 
     [:octicons-arrow-right-24: Installation & Usage](user_guide.md)
 
