@@ -1,0 +1,1284 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../workspaces/">
+      
+      
+        <link rel="next" href="../ground_pipeline/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/gemini_small_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Aerial Pipeline - GEMINI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aerial-pipeline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GEMINI Documentation" class="md-header__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEMINI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aerial Pipeline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GEMINI Documentation" class="md-nav__button md-logo" aria-label="GEMINI Documentation" data-md-component="logo">
+      
+  <img src="../../assets/gemini_logo.png" alt="logo">
+
+    </a>
+    GEMINI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../start_guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start_guide/user_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start_guide/developer_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    App Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    App Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workspaces &amp; Runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerial Pipeline
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aerial Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-data-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data sync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-image-exclusion-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Image exclusion (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gcp-selection-optional-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GCP selection (optional, recommended)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-orthomosaic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Orthomosaic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-plot-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Plot boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-plot-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Plot images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-trait-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Trait extraction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Inference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference &amp; Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analyze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyze
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genotyping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genotyping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home: Dashboard &amp; Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings &amp; Console
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/Amiga/1-%20AmigaQSG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiga
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/Drone/3%20-%20Drone%20SOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/Weather%20Station/1-%20Weather%20Station%20Build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather Station
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aerial-pipeline">Aerial Pipeline</h1>
+<p>The aerial pipeline turns one drone flight into a field map, then into plots, plot images and per-plot traits. Each flight date is a run. Open one from the workspace's run list (see <a href="../workspaces/">Workspaces &amp; Runs</a>). The steps, in order:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What it does</th>
+<th>Needed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Data sync</td>
+<td>Checks the images are in place and reads each one's GPS position</td>
+<td>Yes (automatic)</td>
+</tr>
+<tr>
+<td>2. Image exclusion</td>
+<td>Leave out take-off, landing, blurry or off-field images</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>3. GCP selection</td>
+<td>Mark ground control points for accurate positions</td>
+<td>Optional, recommended</td>
+</tr>
+<tr>
+<td>4. Orthomosaic</td>
+<td>Stitch the images into one map of the field, with an elevation model</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>5. Plot boundaries</td>
+<td>Place the plot grid on the map and attach the field design</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>6. Plot images</td>
+<td>One image per plot, cut from the map or picked from the raw frames</td>
+<td>For inference and viewing</td>
+</tr>
+<tr>
+<td>7. Trait extraction</td>
+<td>Vegetation fraction, canopy height, canopy temperature per plot</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>8. Inference</td>
+<td>Run a model on the plot images (counts, detections)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<p>A run that starts from an uploaded orthomosaic skips steps 1–4.</p>
+<video controls="" muted="" playsinline="" width="100%" poster="../video/aerial-steps.webp" src="../video/aerial-steps.webm"></video>
+
+<h2 id="1-data-sync">1. Data sync</h2>
+<p>Confirms the run's images are present and reads each image's GPS position. Nothing needs doing unless the images carry no position, or a poor one (a phone camera, for example). In that case, upload the drone's flight log or a GPS track (<em>GPS Logs</em>: ArduPilot <code>.bin</code>/<code>.log</code>, GPX, NMEA, CSV, <code>.pos</code>) or a GPS table (<em>Synced Metadata</em>) for the same date. <strong>Start Sync</strong> lists the logs it found; positions are interpolated at each image's capture time. If the camera's clock has no time zone, it is shifted by the whole hours that fit the log, or set the zone in the dialog. The result names the logs used, the clock shift, and any images left without a position.</p>
+<h2 id="2-image-exclusion-optional">2. Image exclusion (optional)</h2>
+<p>Every image is a dot on a satellite map. Leave out the ones ODM should not use: take-off and landing frames, turns, blurry shots, frames off the field.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-review-tool.webp" data-desc-position="bottom"><img alt="Image exclusion" src="../img/aerial/a-review-tool.webp"></a></p>
+<ol>
+<li><strong>Shift-drag a box</strong> over dots to leave those images out (shift-click for a single image).</li>
+<li>The count of images <strong>kept and left out</strong>.</li>
+<li><strong>Save &amp; complete</strong>, or <strong>Skip</strong> the step.</li>
+</ol>
+<h2 id="3-gcp-selection-optional-recommended">3. GCP selection (optional, recommended)</h2>
+<p>Ground control points (GCPs) are markers on the ground at surveyed positions. Marking them in the images ties the orthomosaic to its true position, so maps of different dates line up. ODM needs at least three GCPs marked to use them.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/g-gcp-top.webp" data-desc-position="bottom"><img alt="GCP selection: catalog and map" src="../img/aerial/g-gcp-top.webp"></a></p>
+<ol>
+<li><strong>Load GCPs from CSV</strong>: each GCP's name, latitude, longitude and elevation.</li>
+<li><strong>The GCP you are marking.</strong> Pick one from the list.</li>
+<li><strong>Images near it</strong>: within a radius of the GCP, or picked on the map with a lasso (<em>Map-picker</em>).</li>
+<li><strong>The image map.</strong> The dots near the active GCP are highlighted, and the GCPs are drawn at their positions.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/g-gcp-low.webp" data-desc-position="bottom"><img alt="GCP selection: marking" src="../img/aerial/g-gcp-low.webp"></a></p>
+<ol>
+<li><strong>Step through</strong> the images near the GCP.</li>
+<li><strong>Click the marker's centre</strong> in the image. Right-click a mark to remove it. Mark each GCP in every photo that shows it.</li>
+<li><strong>Save &amp; complete</strong> writes the GCP file ODM reads. ODM uses the GCPs when at least three are marked, each in three or more photos.</li>
+</ol>
+<h2 id="4-orthomosaic">4. Orthomosaic</h2>
+<p>Runs OpenDroneMap on the images (and GCPs, if marked). The result is an orthomosaic and an elevation model; the elevation model gives plant height.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-ortho.webp" data-desc-position="bottom"><img alt="The orthomosaic step" src="../img/aerial/a-ortho.webp"></a></p>
+<p>Each build is kept as a <strong>version</strong>:</p>
+<ul>
+<li><strong>View, rename or delete</strong> a version.</li>
+<li><strong>Import existing</strong> brings in an orthomosaic made elsewhere.</li>
+<li><strong>Re-run</strong> builds again and keeps the earlier version.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-ortho-rerun.webp" data-desc-position="bottom"><img alt="Re-run with a quality" src="../img/aerial/a-ortho-rerun.webp"></a></p>
+<p>Pick a quality when building:</p>
+<table>
+<thead>
+<tr>
+<th>Quality</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quick (boundaries + raw frames)</strong></td>
+<td>Placing plot boundaries and picking raw frames per plot. A 5 cm/px map from the sparse reconstruction, so wind-blown plants do not smear it. Fast. Use it when the full orthomosaic falls apart in wind.</td>
+</tr>
+<tr>
+<td><strong>Draft</strong></td>
+<td>Fast previews (5 cm/px).</td>
+</tr>
+<tr>
+<td><strong>Standard</strong></td>
+<td>Most surveys (3 cm/px).</td>
+</tr>
+<tr>
+<td><strong>High Quality</strong></td>
+<td>Final maps (2 cm/px).</td>
+</tr>
+<tr>
+<td><strong>Ultra</strong></td>
+<td>The finest maps (1 cm/px). Very slow and memory-hungry.</td>
+</tr>
+<tr>
+<td><strong>Detailed map</strong></td>
+<td>A 1 cm/px map for plant counts and plot images, with light 3D. Fits where Ultra runs out of memory.</td>
+</tr>
+<tr>
+<td><strong>Custom</strong></td>
+<td>Your own OpenDroneMap options.</td>
+</tr>
+</tbody>
+</table>
+<p>The viewer (the eye icon) shows the map. It downloads as a GeoTIFF, or as a Cloud-Optimized GeoTIFF (COG) for GIS software.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-ortho-view.webp" data-desc-position="bottom"><img alt="An orthomosaic" src="../img/aerial/a-ortho-view.webp"></a></p>
+<h2 id="5-plot-boundaries">5. Plot boundaries</h2>
+<p>Place one polygon per plot over the orthomosaic and attach the field design: plot number, row, column and accession. Boundaries saved for one date can be imported to another and shifted to fit.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-bounds.webp" data-desc-position="bottom"><img alt="The plot boundary tool" src="../img/aerial/a-bounds.webp"></a></p>
+<ol>
+<li><strong>Map tools.</strong> <em>Select an area</em>, <em>Add a plot</em>, show or hide the plots, the plots' opacity, and turning the view so rows run straight (<em>Align with plots</em>, <em>North up</em>).</li>
+<li><strong>The map.</strong> Drag a plot to move it. Shift-drag to select many, then move them together. The tools on the map's left edge draw, edit, move and delete shapes.</li>
+<li><strong>Versions.</strong> Save the layout as a version and make it the active one (<em>Save &amp; complete step</em>), or save without activating it. Load an earlier version from the list.</li>
+<li><strong>Import from…</strong> another date's boundaries.</li>
+</ol>
+<p>Below the map, <strong>Grid</strong> builds the plots for you:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-bounds-grid.webp" data-desc-position="bottom"><img alt="Grid settings" src="../img/aerial/a-bounds-grid.webp"></a></p>
+<ul>
+<li><strong>Field design CSV</strong>: one plot per row of the design, laid out by its rows and columns. Use <em>Flip rows</em>, <em>Flip cols</em> and <em>Swap axes</em> if the grid comes out mirrored or turned.</li>
+<li><strong>Manual</strong>: a number of rows and columns.</li>
+<li><strong>Plot width, plot length, gaps and border rows</strong> set the plot size and spacing; 0 fits the plots to the outer boundary.</li>
+<li><strong>Boundary from ortho extent</strong> draws an outer boundary to start from. <strong>Generate plot grid</strong> fills it.</li>
+<li><strong>Import GeoJSON</strong> or <strong>Download GeoJSON</strong> to move boundaries in or out of GIS software.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Several treatments in one field</p>
+<p>When a field was flown in parts (for example a well-watered and a drought block), the tool shows each part's orthomosaic where it is nearest. One set of boundaries can cover both, and each plot's results are kept with its treatment.</p>
+</div>
+<h2 id="6-plot-images">6. Plot images</h2>
+<p>One image per plot, for the plot viewer and for inference. Trait extraction does not need them. There are two sources:</p>
+<ul>
+<li><strong>Orthomosaic</strong>: each plot is cut out of the map.</li>
+<li><strong>Raw frames</strong>: for each plot, the flight frames that show it best (the whole plot in frame, then the most top-down). They are placed with the camera positions of the orthomosaic the boundaries were drawn on. Raw frames are sharper than the map and do not smear in wind, so a Quick orthomosaic is enough. The flight's other cameras are matched by capture time and cut the same way, so a thermal camera gives each plot a thermal image and a canopy temperature.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-frames.webp" data-desc-position="bottom"><img alt="Plot images from the raw frames" src="../img/aerial/a-frames.webp"></a></p>
+<ol>
+<li><strong>Orthomosaic or raw frames.</strong></li>
+<li><strong>Which plots</strong>: all, only those without images yet, or a list (for example <code>12, 15-18, 106</code>, such as a plot just added to the boundaries).</li>
+<li><strong>Run</strong> (<em>Pick the frames again</em> re-picks them).</li>
+<li><strong>What was picked</strong>: how many plots and frames, any plot only partly in frame, and how the thermal frames were matched.</li>
+<li><strong>Camera</strong>: RGB, or the flight's other cameras.</li>
+<li><strong>Straightened</strong>: the best frame turned top-down to the plot. <strong>Best frame</strong>: the whole frame it came from.</li>
+<li><strong>Download</strong> the images (zip), or the manifest (CSV) of which frame each plot came from.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-frames-thermal.webp" data-desc-position="bottom"><img alt="Thermal plot images" src="../img/aerial/a-frames-thermal.webp"></a></p>
+<p>The thermal images are coloured on one scale for every plot. The <code>.tif</code> files in the download hold the temperatures.</p>
+<h2 id="7-trait-extraction">7. Trait extraction</h2>
+<p>Measures each plot from the orthomosaic and plot boundaries:</p>
+<ul>
+<li><strong>Vegetation fraction</strong>: the share of the plot covered by plants.</li>
+<li><strong>Canopy height</strong>: from the elevation model.</li>
+<li><strong>Canopy temperature</strong>: from the thermal camera, when it was flown.</li>
+</ul>
+<p>The results are stored per plot and appear in Analyze.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/aerial/a-traits.webp" data-desc-position="bottom"><img alt="Trait extraction results" src="../img/aerial/a-traits.webp"></a></p>
+<ol>
+<li><strong>Each trait's summary</strong>: its mean and range across the plots. Open it <strong>through the season</strong> (a chart) or as a <strong>table</strong>.</li>
+<li><strong>Canopy − air temperature</strong> compares each plot's canopy temperature with the air temperature from a weather station at the flight's time. Below zero, the canopy is cooler than the air (transpiring). Upload a station's records with <strong>Add a station</strong>, pick the station and time window, then <strong>Save as a trait</strong>.</li>
+</ol>
+<h2 id="8-inference">8. Inference</h2>
+<p>Runs a detection, segmentation or classification model over the plot images, for example to count panicles, flowers or pods. Its counts are stored per plot as traits. See <a href="../inference/">Inference &amp; Training</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "toc.integrate", "content.code.copy", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
