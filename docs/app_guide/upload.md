@@ -1,42 +1,68 @@
 # Upload
 
-This guide demonstrates how to upload various data types into the Gemini app's Files tab. It covers organizing, verifying, and syncing metadata to ensure consistent and accurate data management.
+Everything starts in **Files → Upload**. You choose what kind of data it is and describe where it belongs (experiment, season, site, crop, date, platform, camera). Then you point the app at the files. The description decides where the data is stored. It also becomes the filter you use later in Process and Analyze, so keep names consistent across uploads.
 
-## Video Tutorial
-[**Watch the full guide on Guidde**](https://app.guidde.com/playbooks/sJbZ163bHRuqNrvq8p87ar)
+<video controls muted playsinline width="100%" poster="../video/upload.webp" src="../video/upload.webm"></video>
 
-[![Quick guidde](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2FsJbZ163bHRuqNrvq8p87ar%2Fr3R7aymJQQTprFTKkVQjLr_cover.png?alt=media&token=68fdfe66-0b90-45f3-acf1-0ef59d61f709)](https://app.guidde.com/share/playbooks/sJbZ163bHRuqNrvq8p87ar)
+## 1. Pick the kind of data
 
----
+![Files → Upload](img/upload/f-start.webp)
 
-## 1. Introduction to Uploading Data
-The Files section is the entry point for getting your data into the application. To access it, select the **Files** option in the left sidebar. There are two tabs available: **Upload** and **Manage**.
+1. **Pick the kind of data.** Choose one of:
+    - **Image Data**: drone or handheld photos (JPEG, PNG or TIFF; iPhone HEIC photos are refused, with how to get JPEGs).
+    - **Farm-ng Binary File**: Amiga rover logs.
+    - **Orthomosaic**: a map made elsewhere.
+    - **Field Design**: plot, row, column and accession of every plot.
+    - **Reference Data**: hand measurements per plot.
+    - **Weather Data**: weather station records.
+    - **Trait Data**: traits measured elsewhere.
+    - **Genomic Data**: marker files.
+    - **GPS Logs** and **Synced Metadata**: a drone's flight log, or the GPS track of a walk or drive (GPX, NMEA, CSV from a phone logger or RTK receiver, RTKLIB/Emlid `.pos`), or a GPS table, for images whose own positions are missing or poor.
 
-- **Key Actions:** Select Files tab, choose Upload or Manage.
+    Each type shows a short hint in the list of what it is for.
+2. **Or continue a recent upload.** Another date of a field you have uploaded before fills in everything except the date.
 
-![Introduction To Uploading Data](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2FsJbZ163bHRuqNrvq8p87ar%2FcQpxDH9fyLUCJYDzBzKmZK_doc.png?alt=media&token=91921f27-4b1b-47f7-9e7d-00f294eb3a21)
+## 2. Describe the data
 
-## 2. Uploading Data Types
-When selecting a data type to upload, you will need to input specific data structure fields. This allows you to organize your data consistently.
+![The upload form](img/upload/f-form.webp)
 
-- **Example (Drone Images):** When uploading drone imagery, many fields (like Date, Platform, and Sensor) may auto-fill from the image metadata, ensuring consistency. You will need to manually define the **Experiment**, **Location**, and **Population** fields.
-- **Workflow:** Select data type -> Fill required fields -> Verify metadata -> Click upload.
+1. **Data type**: what you picked above.
+2. **Experiment, season, site and population (crop).** Pick existing ones or type new names. A flight over several neighbouring trials can use *Mixed*: the field design's crop column then files each plot's results under its own crop.
+3. **Date.** Enter one date, or let the app read it from the file names. Either way you confirm it before anything is uploaded.
+4. **Platform and camera.** Drone, rover or handheld (handheld photos with GPS go through the ground pipeline like a rover's; without GPS they are paired with the field design, see [Ground pipeline](ground_pipeline.md#5-plot-images)); RGB, thermal, the drone's own camera, or another camera by name. Each camera is stored in its own folder, so an RGB and a thermal camera flown on the same date never mix.
+5. **Where the files are.** See the next section.
+6. **The upload area.** Drop files or whole folders here, or click to browse. Subfolders are included.
 
-![Navigating Files Tab](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2FsJbZ163bHRuqNrvq8p87ar%2FiEGXMjaj8jxugPfUC17kfk_doc.png?alt=media&token=74b75d24-3697-412c-91bd-71dafc2884c6)
+Further down the form:
 
-## 3. Syncing Metadata
-If your images are missing metadata, you can use the **Sync Metadata** feature to upload a corresponding CSV file.
-1. Select the **Synced Metadata** data type.
-2. When prompted, map the CSV columns to the required application fields (e.g., `image path`, `timestamp`).
-3. The application will automatically handle the mapping for `lat`, `long`, and `altitude` if present in the CSV.
+![Treatment and diurnal options](img/upload/f-form-lower.webp)
 
-- **Sync Process:** Upload CSV -> Map columns -> Confirm.
+- **Treatment (optional).** Use this when an experiment's data is collected separately per treatment, for example a well-watered and a drought block flown as two flights. Each treatment is kept as its own upload. Its runs are processed together, but the results stay apart.
+- **Diurnal data.** Tick this when the field was covered more than once on the same date. Each pass then becomes its own run.
 
-![Correcting Metadata Issues](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2FsJbZ163bHRuqNrvq8p87ar%2FtwCWc3qqdqKp85Cj11FJhW_doc.png?alt=media&token=bf943bec-7dbd-4060-ac31-6cddfc36e070)
+## 3. Where the files are
 
-## 4. Verifying Uploads
-After initiating an upload, track progress in the **Processes** tab. Once completed, navigate to the **Manage** tab to:
-- Confirm file counts and upload status.
-- Use the **View Images** feature to perform a quality check and ensure your data was uploaded correctly.
+**This computer**: drop or browse files as above.
 
-- **Verification steps:** Check Processes tab -> View in Manage tab -> Verify image quality.
+**On the cluster**: when the app runs on a cluster, type the folder's full path there. *Look* lists what is in it before anything is copied. The files are uploaded by a job on the cluster and never pass through your computer.
+
+![Upload from a cluster folder](img/upload/f-where-hpc.webp)
+
+**Online storage**: Box, Google Drive, Dropbox, S3, WebDAV, a web folder or SFTP. Connect an account once and browse its folders. A job copies the folder straight from the storage, so nothing passes through your computer. To take only some files, give the ending their names share (for example `_V.JPG`).
+
+![Upload from online storage](img/upload/f-where-cloud.webp)
+
+## 4. Check what is stored
+
+Uploads run in the background and appear in the jobs panel at the bottom right.
+
+**Manage** lists each experiment's uploads and results by season. Deleting an experiment removes everything it holds. Reference data tables are listed below the experiments. They appear as extra columns in *Analyze → Table* for the matching experiment and site.
+
+![Files → Manage](img/upload/f-manage.webp)
+
+**View** counts what the app holds (experiments, datasets, traits, sensors, populations, genotyping studies). It also shows trait records and uploaded images, filtered to an experiment.
+
+![Files → View](img/upload/f-view.webp)
+
+!!! tip "Uploading by asking"
+    The agent on the Home page can upload too. For example: *"upload the drone flight in /data/2026-08-17/RGB to GEMINI-26, Davis, Sorghum"*.

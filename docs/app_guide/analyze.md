@@ -1,39 +1,75 @@
 # Analyze
 
-This guide provides an overview of the **Analyze** tab, where you can review, compare, and visualize your processed data.
+**Analyze** shows the measured traits plot by plot through the season. Every trait lands here: from trait extraction, from models, from thermal images, from weather stations, and from reference data you uploaded. Pick an **experiment, season, site and population** at the top; every tab works on that choice.
 
-## Video Tutorial
-[**Watch the full guide on Guidde**](https://app.guidde.com/playbooks/7uL6DVmyKR36EioGzku6tt)
+<video controls muted playsinline width="100%" poster="../video/analyze.webp" src="../video/analyze.webm"></video>
 
-[![Quick guidde](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2F7uL6DVmyKR36EioGzku6tt%2FhvdBtrA1aGhroApsJH8tRW_cover.png?alt=media&token=50e182b2-0ae8-4458-8a62-185b72f842e0)](https://app.guidde.com/share/playbooks/7uL6DVmyKR36EioGzku6tt)
+## Table
 
----
+Every plot's traits on each date, a row per plot per date.
 
-## 1. Pipeline Runs
-The **Pipeline Runs** view allows you to see all processed pipelines across your workspaces.
+![Analyze → Table](img/analyze/an-table.webp)
 
-- Click on any specific run to inspect individual plots.
-- You can expand views for better visualization or rotate images to get a wider perspective of the field plots.
+1. **Tabs**: Table, Query, Single trait, Multivariate, Map, Weather.
+2. **Experiment, season, site and population (crop).**
+3. **Traits shown.** *Also traits not measured here* adds traits from other experiments and sites.
+4. **Each date**, or one date.
+5. **Filter plots** by plot number (`plot:12`), accession (`acc:CB27`), date (`date:2022-07`) or any text.
+6. **Download CSV.**
 
-![Viewing Pipeline Runs](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2F7uL6DVmyKR36EioGzku6tt%2Fu1WnhCXLQghPDbhfHJnTQC_doc.png?alt=media&token=97a6df1c-419b-4c92-bc3a-8142240b56c9)
+Click a row to see that plot's image on that date.
 
-## 2. Master Table
-The **Master Table** provides an aggregated view of all processed data. Unlike the Pipeline Runs view which shows individual events, the Master Table displays all dates collected and processed for each workspace.
+## Query
 
-![Using The Master Table](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2F7uL6DVmyKR36EioGzku6tt%2FvZjK9ZeaQVSNkufGP2ojUh_doc.png?alt=media&token=71cd088e-8857-45ed-ad30-3acea31d7a0d)
+Find plots and see their images across the season, with each date's traits under the image.
 
-## 3. Query Tab
-Use the **Query** tab to conduct side-by-side comparisons of your plots.
+![Analyze → Query](img/analyze/an-query.webp)
 
-1. Select a data source (e.g., "Stitches").
-2. Run a query to view plots.
-3. Click the **Pin** button on specific plots to add them to the comparison panel at the top. This allows you to view extracted trait data (e.g., height, vegetation fraction) for multiple plots simultaneously.
+1. **Find plots** by plot number or accession. An accession adds all of its plots.
+2. **The plots you added.** Remove one with its ×, or clear them all.
+3. **Image source and size.** Plot images from the orthomosaic, the raw frames or the thermal camera; small, medium or large. *Only dates with images* hides the empty dates.
+4. **Each plot through the season**, a row per plot and a column per date. Click an image to open it full size.
 
-![Map Tab Overview](https://static.guidde.com/v0/qg%2FDV0gSkUhbsfKSCPMFfYn4kuNAIt1%2F7uL6DVmyKR36EioGzku6tt%2FmSvi8HgAfQWX3ghYA2poj5_doc.png?alt=media&token=514efd56-3815-4016-8eae-eea3f909ac82)
+## Single trait
 
-## 4. Map Tab
-The **Map** tab provides a spatial perspective of your processed data.
+Pick a trait to see it through the season, plot by plot, or across genotypes and sites.
 
-- **Overlays:** See all orthomosaics and stitches together.
-- **Plot Boundaries:** Overlay saved plot boundaries onto your imagery.
-- **Inspection:** Click on any plot boundary within the map to get a closer view of the underlying orthomosaic or inference detections.
+![Analyze → Single trait](img/analyze/an-single.webp)
+
+**Chart type**:
+
+- **Through the season**: the mean, the middle half of the plots, and the range on each date.
+- **Season table**: a plot per row, a date per column.
+- **Histogram.**
+
+Outliers are left out by default; *Include outliers* shows them. Narrow the chart by experiment, season, site, dataset or population.
+
+## Multivariate
+
+Several traits together:
+
+- **Correlation**: which traits rise and fall together.
+- **PCA**: the main axes of variation across plots.
+- **MANOVA**: whether genotypes differ across several traits at once.
+
+*Average replicates by genotype* correlates genotype means instead of single plots. Pick the experiments, seasons, sites and traits, then **Run analysis**.
+
+![Analyze → Multivariate](img/analyze/an-multi.webp)
+
+## Map
+
+Each date's orthomosaic with its plots coloured by a trait.
+
+![Analyze → Map](img/analyze/an-map.webp)
+
+1. **Date.**
+2. **Colour plots by a trait** (a heatmap), or show outlines only.
+3. **The orthomosaic under the plots**, with the opacity of each layer.
+
+Click a plot for its traits and image.
+
+## Weather
+
+Weather station records beside the flights: the air temperature through each flight day, with the flight's window shaded. A table compares each flight's canopy temperature with the air temperature (CTD, canopy − air), along with humidity, vapour pressure deficit (VPD) and light (PAR). Each treatment can have its own station. Upload station records as **Weather Data** in Files, or with **Add a station**.
+
+![Analyze → Weather](img/analyze/an-weather.webp)
